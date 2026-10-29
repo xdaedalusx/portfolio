@@ -279,6 +279,7 @@ h1, h2, h3, p { margin-top: 0; }
 /* A fixed responsive viewport prevents landscape, portrait, and UI screenshots from resizing the layout. */
 .featured-project-visual { width: 100%; height: clamp(320px, 38vw, 500px); min-width: 0; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #080808; }
 .featured-project-media { width: 100%; height: 100%; min-height: 0; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.featured-project-loading { width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; color: #777; background: #0b0b0b; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; text-align: center; padding: 1rem; }
 .featured-project-media > img { display: block; width: 100%; height: 100%; min-height: 0; max-width: 100%; max-height: 100%; object-fit: contain; object-position: center; opacity: 1; filter: none; mix-blend-mode: normal; }
 .featured-project-media > .project-cover { width: 100%; height: 100%; min-height: 0; max-height: 100%; }
 .featured-project-media .project-cover > img { width: 100%; height: 100%; object-fit: contain; }

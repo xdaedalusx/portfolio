@@ -15,7 +15,9 @@ if (menuButton && nav) {
 }
 
 
-// Global featured carousel: each project gets a turn in the large presentation above the full collection.
+// Global featured carousel: preload a requested image before changing slides.
+// This keeps the current project visible while a slower asset (especially remote
+// iCarus screenshots) downloads, and avoids blank frames during navigation.
 (() => {
   const stage = document.querySelector('.featured-project-stage');
   const collection = document.querySelector('.project-grid');
@@ -43,8 +45,11 @@ if (menuButton && nav) {
     };
   });
   if (!projects.length) return;
+
   let active = 0;
   let timer = null;
+  let requestId = 0;
+  const imageCache = new Map();
   totalLabel.textContent = String(projects.length).padStart(2, '0');
   const collectionCount = document.querySelector('.project-collection-count');
   if (collectionCount) collectionCount.textContent = String(projects.length).padStart(2, '0');
@@ -59,34 +64,80 @@ if (menuButton && nav) {
     return dot;
   });
 
-  function render(index) {
-    active = (index + projects.length) % projects.length;
-    const project = projects[active];
+  function preload(src) {
+    if (!src) return Promise.resolve(null);
+    if (imageCache.has(src)) return imageCache.get(src);
+    const promise = new Promise((resolve) => {
+      const image = new Image();
+      image.decoding = 'async';
+      image.onload = async () => {
+        try { if (image.decode) await image.decode(); } catch (_) { /* already loaded */ }
+        resolve(image);
+      };
+      image.onerror = () => resolve(null);
+      image.src = src;
+      if (image.complete && image.naturalWidth > 0) resolve(image);
+    });
+    imageCache.set(src, promise);
+    return promise;
+  }
+
+  function warmNext(index) {
+    const nextProject = projects[(index + 1) % projects.length];
+    if (nextProject?.image) preload(nextProject.image);
+  }
+
+  async function render(index) {
+    const target = (index + projects.length) % projects.length;
+    const project = projects[target];
+    const thisRequest = ++requestId;
+
+    // Keep the existing slide intact until its replacement is ready.
+    if (project.image) {
+      const loadedImage = await preload(project.image);
+      if (thisRequest !== requestId) return;
+      if (!loadedImage) {
+        // A failed asset should not freeze the carousel or leave a broken image.
+        media.replaceChildren();
+        const fallback = document.createElement('div');
+        fallback.className = 'featured-project-loading';
+        fallback.textContent = 'Preview temporarily unavailable';
+        media.append(fallback);
+      } else {
+        const img = document.createElement('img');
+        img.src = project.image;
+        img.alt = project.alt;
+        img.loading = 'eager';
+        img.decoding = 'async';
+        img.fetchPriority = 'high';
+        media.replaceChildren(img);
+      }
+    } else if (project.fallbackHTML) {
+      media.innerHTML = project.fallbackHTML;
+    } else {
+      media.replaceChildren();
+    }
+    if (thisRequest !== requestId) return;
+
+    active = target;
     link.href = project.href;
     link.setAttribute('aria-label', `View ${project.title}`);
     info.innerHTML = project.infoHTML;
-    media.replaceChildren();
-    if (project.image) {
-      const img = document.createElement('img');
-      img.src = project.image;
-      img.alt = project.alt;
-      img.loading = 'eager';
-      img.decoding = 'async';
-      media.append(img);
-    } else if (project.fallbackHTML) {
-      media.innerHTML = project.fallbackHTML;
-    }
     currentLabel.textContent = String(active + 1).padStart(2, '0');
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === active);
       dot.setAttribute('aria-current', i === active ? 'true' : 'false');
     });
     stage.setAttribute('aria-label', `Featured project ${active + 1} of ${projects.length}: ${project.title}`);
+    warmNext(active);
   }
+
   function stop() { if (timer) clearInterval(timer); timer = null; }
   function restart() {
     stop();
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => render(active + 1), 7000);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timer = setInterval(() => render(active + 1), 7000);
+    }
   }
   prev.addEventListener('click', (event) => { event.preventDefault(); event.stopPropagation(); render(active - 1); restart(); });
   next.addEventListener('click', (event) => { event.preventDefault(); event.stopPropagation(); render(active + 1); restart(); });
