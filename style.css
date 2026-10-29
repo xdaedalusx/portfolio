@@ -233,3 +233,38 @@ h1, h2, h3, p { margin-top: 0; }
 .mandelbrot-cta { display:flex; justify-content:space-between; gap:2rem; align-items:center; width:100%; border-top:1px solid #333; padding-top:1rem; margin-top:1.5rem; color:#c4a1b6; font:.62rem monospace; letter-spacing:.04em; }
 .mandelbrot-project:hover .mandelbrot-cta { color:#fff; }
 @media(max-width:760px) { .mandelbrot-cover { height:clamp(230px,62vw,330px); } }
+
+
+/* Restored project image carousels — keep screenshots bright and fully fitted. */
+.project-cover[data-carousel] { position: relative; }
+.project-cover[data-carousel] > img {
+  width: 100%; height: 100%; object-fit: contain; object-position: center;
+  opacity: 1 !important; filter: none !important; mix-blend-mode: normal !important;
+}
+.project-gallery { display: none !important; }
+.carousel-control {
+  position: absolute; z-index: 5; top: 50%; transform: translateY(-50%);
+  display: grid; place-items: center; width: 2.55rem; height: 2.55rem;
+  padding: 0; border: 1px solid #ffffff55; border-radius: 50%; color: #fff;
+  background: #080808c9; font: inherit; font-size: 1.45rem; line-height: 1;
+  cursor: pointer; opacity: .82; transition: opacity .2s ease, background .2s ease;
+}
+.carousel-control:hover, .carousel-control:focus-visible { opacity: 1; background: #292929; }
+.carousel-control.prev { left: .8rem; }
+.carousel-control.next { right: .8rem; }
+.carousel-status {
+  position: absolute; z-index: 5; right: .8rem; bottom: .8rem;
+  padding: .28rem .48rem; border: 1px solid #ffffff35; border-radius: 999px;
+  color: #f5f5f5; background: #080808c9; font-family: monospace;
+  font-size: .65rem; line-height: 1.2; letter-spacing: .06em; font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .carousel-control { opacity: .35; }
+  .project-cover:hover .carousel-control, .project-cover:focus-within .carousel-control { opacity: 1; }
+}
+@media (max-width: 760px) {
+  .carousel-control { width: 2.25rem; height: 2.25rem; }
+  .carousel-control.prev { left: .5rem; } .carousel-control.next { right: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .carousel-control { transition: none; } }
