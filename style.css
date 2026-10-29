@@ -275,3 +275,50 @@ h1, h2, h3, p { margin-top: 0; }
   .carousel-control.prev { left: .55rem; }
   .carousel-control.next { right: .55rem; }
 }
+
+
+/* iCarus side project card */
+.icarus-project { align-self: stretch; }
+.icarus-cover { height: clamp(240px, 28vw, 360px); }
+.icarus-cover > img { padding: 1rem; object-fit: contain; background: #101010; }
+.icarus-project .project-info { display: flex; flex-direction: column; align-items: flex-start; }
+.icarus-features {
+  display: grid;
+  gap: .55rem;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #303030;
+  width: 100%;
+  color: #a7a7a7;
+  font: .65rem/1.5 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  letter-spacing: .025em;
+}
+.icarus-cta {
+  display: inline-flex;
+  gap: .7rem;
+  align-items: center;
+  margin-top: 1.35rem;
+  color: #f5f5f5;
+  font: .66rem/1.4 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  letter-spacing: .09em;
+}
+.icarus-project:hover .icarus-cta { color: #ffb477; }
+@media (max-width: 760px) {
+  .icarus-cover { height: clamp(230px, 62vw, 330px); }
+}
+
+/* CSS-only iCarus artwork: no app assets need to be copied into this repository. */
+.icarus-cover { height: clamp(240px, 28vw, 360px); padding: clamp(1rem, 3vw, 2.2rem); box-sizing: border-box; background: radial-gradient(ellipse at 70% 25%, #33233c 0%, #17151e 42%, #09090c 100%); }
+.icarus-cover > .icarus-screen { width: 100%; height: 100%; box-sizing: border-box; border: 1px solid #5d5266; border-radius: 9px; padding: 1rem; background: linear-gradient(145deg, #1b1a23, #0b0b10); box-shadow: 0 14px 45px #0009; display: flex; flex-direction: column; justify-content: space-between; color: #f4f0fa; overflow: hidden; }
+.icarus-screen-top, .icarus-screen-controls { display: flex; align-items: center; justify-content: space-between; gap: .75rem; color: #bcb4c7; font: .55rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .07em; }
+.icarus-screen-main { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); justify-content: center; }
+.icarus-disc { width: clamp(74px, 10vw, 126px); aspect-ratio: 1; flex: 0 0 auto; border-radius: 50%; background: repeating-radial-gradient(circle, #14131a 0 4px, #38313e 5px 6px, #19171f 7px 10px); border: 1px solid #73617f; display: grid; place-items: center; box-shadow: 0 0 28px #d38cff20; }
+.icarus-disc span { width: 18%; aspect-ratio: 1; border-radius: 50%; background: #ffb477; box-shadow: 0 0 18px #ffb47777; }
+.icarus-track { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.icarus-kicker, .icarus-track-meta { color: #b8adbf; font: .55rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .08em; }
+.icarus-track strong { font-size: clamp(1rem, 2.4vw, 1.8rem); line-height: 1; letter-spacing: -.04em; }
+.icarus-track-line { width: 100%; height: 3px; background: linear-gradient(90deg, #ffb477 0 64%, #4a414f 64% 100%); margin: .25rem 0; }
+.icarus-screen-controls { justify-content: flex-start; font-size: .75rem; color: #eee5f3; }
+.icarus-progress { height: 3px; flex: 1; background: #49404e; margin: 0 .5rem; }
+.icarus-progress i { display: block; width: 64%; height: 100%; background: #ffb477; }
+@media (max-width: 760px) { .icarus-cover { height: clamp(220px, 62vw, 320px); } .icarus-cover > .icarus-screen { padding: .75rem; } }
