@@ -57,7 +57,8 @@ document.querySelectorAll(".project-cover[data-carousel]").forEach((cover) => {
   function showSlide(index) {
     current = (index + slides.length) % slides.length;
     const slide = slides[current];
-    heroImage.style.opacity = "0.25";
+    // Keep the current image fully visible while the next slide loads.
+    // Dimming the image before preload can leave it faded if a remote image stalls.
     const preload = new Image();
     preload.onload = () => {
       heroImage.src = slide.src;
@@ -65,8 +66,7 @@ document.querySelectorAll(".project-cover[data-carousel]").forEach((cover) => {
       heroImage.style.opacity = "1";
     };
     preload.onerror = () => {
-      heroImage.src = slide.src;
-      heroImage.alt = slide.alt;
+      // If a slide cannot load, preserve the current image instead of fading it.
       heroImage.style.opacity = "1";
     };
     preload.src = slide.src;
