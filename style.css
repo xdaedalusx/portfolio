@@ -139,60 +139,32 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 
-/* Original project imagery from the project archive */
-@media (max-width: 760px) {
+/* Original project imagery: keep screenshots unobstructed and at full brightness. */
+.project-cover {
+  position: relative;
+  height: clamp(240px, 28vw, 360px);
+  overflow: hidden;
+  background: #101010;
 }
-@media (max-width: 420px) {
+.project-featured .project-cover {
+  height: clamp(280px, 44vw, 520px);
 }
-
-
-/* Keep source screenshots at their original brightness; only carousel controls may fade. */
-  opacity: 1 !important;
-  filter: none !important;
+.project-grid .project-cover {
+  height: clamp(240px, 28vw, 360px);
+}
+.project-cover > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
   mix-blend-mode: normal;
   transition: none;
 }
-.project-card:hover .project-cover > img,
-  opacity: 1 !important;
-  filter: none !important;
-}
-.project-featured .project-cover { height: clamp(280px, 44vw, 520px); }
-.project-grid .project-cover { height: clamp(240px, 28vw, 360px); }
+/* Image captions used to sit on top of the screenshots and obscure them. */
 .project-cover .visual-label {
-  position: absolute;
-  z-index: 2;
-  left: 1rem;
-  top: 1rem;
-  background: #080808d9;
-  padding: .4rem .6rem;
-  max-width: calc(100% - 2rem);
-  pointer-events: none;
-}
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  transform: translateY(-50%);
-  display: grid;
-  place-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  padding: 0;
-  border: 1px solid #ffffff50;
-  border-radius: 50%;
-  color: #fff;
-  background: #080808bd;
-  font: inherit;
-  font-size: 1.35rem;
-  line-height: 1;
-  cursor: pointer;
-  opacity: .8;
-  transition: opacity .2s ease, background .2s ease;
-}
-@media (hover: hover) {
-  .project-cover:hover .carousel-control, .project-cover:focus-within .carousel-control { opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .project-cover > img, .carousel-control { transition: none; }
+  display: none !important;
 }
 @media (max-width: 760px) {
   .project-featured .project-cover { height: clamp(240px, 70vw, 390px); }
@@ -253,7 +225,7 @@ h1, h2, h3, p { margin-top: 0; }
 .fractal-art span { position:absolute; width:44%; aspect-ratio:1; left:28%; top:18%; border-radius:50%; background:repeating-radial-gradient(ellipse at 50% 50%,#0a0710 0 5px,#e87d53 6px 7px,#40205b 8px 11px,#130f21 12px 15px); transform:scaleX(1.2); filter:drop-shadow(0 0 25px #d65b4050); }
 .fractal-art i { position:absolute; width:36%; height:58%; left:9%; top:20%; border-radius:50%; background:repeating-radial-gradient(ellipse at 65% 50%,#07070b 0 4px,#9c3b68 5px 6px,#211638 7px 10px); transform:rotate(-25deg); }
 .fractal-art b { position:absolute; width:30%; height:47%; right:8%; top:29%; border-radius:50%; background:repeating-radial-gradient(ellipse at 35% 50%,#08080b 0 4px,#d9874d 5px 6px,#42204d 7px 10px); transform:rotate(28deg); }
-.mandelbrot-cover .visual-label { position:absolute; z-index:2; left:1rem; top:1rem; background:#080808d9; padding:.4rem .6rem; font-size:.58rem; }
+.mandelbrot-cover .visual-label { display:none !important; }
 .mandelbrot-project .project-info { display:flex; flex-direction:column; align-items:flex-start; }
 .mandelbrot-cta { display:flex; justify-content:space-between; gap:2rem; align-items:center; width:100%; border-top:1px solid #333; padding-top:1rem; margin-top:1.5rem; color:#c4a1b6; font:.62rem monospace; letter-spacing:.04em; }
 .mandelbrot-project:hover .mandelbrot-cta { color:#fff; }
