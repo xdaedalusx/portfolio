@@ -183,9 +183,36 @@ h1, h2, h3, p { margin-top: 0; }
 }
 
 
-/* Use Daniel's original repository screenshots as project cover images. */
-.project-cover { display: flex; align-items: center; justify-content: center; background: #101010; }
-.project-cover > img { display: block; width: 100%; height: 100%; min-height: 220px; max-height: 520px; object-fit: contain; background: #101010; }
-.project-featured .project-cover > img { min-height: clamp(280px, 44vw, 520px); }
-.project-grid .project-cover > img { min-height: 270px; max-height: 420px; }
-.project-cover .visual-label { background: #080808d9; padding: .35rem .55rem; }
+/* Keep original project screenshots contained inside consistent cover frames. */
+.project-cover {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  background: #101010;
+}
+.project-cover > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  padding: clamp(.5rem, 1.5vw, 1rem);
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  background: #101010;
+}
+.project-featured .project-cover { height: clamp(280px, 44vw, 520px); }
+.project-grid .project-cover { height: clamp(240px, 28vw, 360px); }
+.project-cover .visual-label {
+  background: #080808d9;
+  padding: .35rem .55rem;
+  max-width: calc(100% - 2rem);
+}
+@media (max-width: 760px) {
+  .project-featured .project-cover { height: clamp(240px, 70vw, 390px); }
+  .project-grid .project-cover { height: clamp(220px, 62vw, 320px); }
+}
