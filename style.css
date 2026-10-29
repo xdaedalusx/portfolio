@@ -137,3 +137,55 @@ h1, h2, h3, p { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Original project imagery from the project archive */
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .6rem;
+  padding: 0 clamp(1rem, 2.5vw, 2rem) clamp(1rem, 2.5vw, 2rem);
+  background: var(--panel);
+}
+.gallery-item {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid #303030;
+  background: #090909;
+  overflow: hidden;
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: clamp(105px, 14vw, 190px);
+  object-fit: contain;
+  background: #101010;
+  transition: transform .35s ease, opacity .25s ease;
+}
+.project-card:hover .gallery-item img { opacity: .94; }
+.gallery-item figcaption {
+  border-top: 1px solid #292929;
+  padding: .55rem .65rem;
+  color: #888;
+  font: .59rem/1.45 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  letter-spacing: .035em;
+}
+.project-featured .project-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.project-grid .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 1rem 1rem; }
+.project-grid .gallery-item img { height: clamp(100px, 12vw, 155px); }
+@media (max-width: 760px) {
+  .project-gallery, .project-featured .project-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-item img { height: 135px; }
+}
+@media (max-width: 420px) {
+  .project-gallery, .project-featured .project-gallery, .project-grid .project-gallery { grid-template-columns: 1fr; }
+  .gallery-item img, .project-grid .gallery-item img { height: 190px; }
+}
+
+
+/* Use Daniel's original repository screenshots as project cover images. */
+.project-cover { display: flex; align-items: center; justify-content: center; background: #101010; }
+.project-cover > img { display: block; width: 100%; height: 100%; min-height: 220px; max-height: 520px; object-fit: contain; background: #101010; }
+.project-featured .project-cover > img { min-height: clamp(280px, 44vw, 520px); }
+.project-grid .project-cover > img { min-height: 270px; max-height: 420px; }
+.project-cover .visual-label { background: #080808d9; padding: .35rem .55rem; }
