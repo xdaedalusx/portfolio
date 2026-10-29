@@ -268,3 +268,38 @@ h1, h2, h3, p { margin-top: 0; }
   .carousel-control.prev { left: .5rem; } .carousel-control.next { right: .5rem; }
 }
 @media (prefers-reduced-motion: reduce) { .carousel-control { transition: none; } }
+
+
+/* One large featured carousel rotates through every project; the full collection remains below. */
+.featured-project-stage {
+  position: relative; margin: 1.25rem 0 2.8rem; border: 1px solid var(--line); background: #0c0c0c;
+  overflow: hidden;
+}
+.featured-project-link { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr); min-height: 440px; color: inherit; }
+.featured-project-visual { min-width: 0; min-height: clamp(300px, 42vw, 560px); display: flex; align-items: center; justify-content: center; overflow: hidden; background: #080808; }
+.featured-project-media { width: 100%; height: 100%; min-height: inherit; display: flex; align-items: center; justify-content: center; position: relative; }
+.featured-project-media > img { display: block; width: 100%; height: 100%; min-height: clamp(300px, 42vw, 560px); object-fit: contain; object-position: center; opacity: 1; filter: none; mix-blend-mode: normal; }
+.featured-project-media .project-cover { width: 100%; height: 100%; min-height: clamp(300px, 42vw, 560px); }
+.featured-project-media .project-cover > img { object-fit: contain; }
+.featured-project-info { padding: clamp(1.5rem, 3.5vw, 3rem); display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--line); }
+.featured-project-info .project-info { padding: 0; }
+.featured-project-info .project-info h3 { font-size: clamp(2rem, 3.4vw, 3.7rem); }
+.featured-project-info .project-info p { font-size: .95rem; }
+.featured-project-info .project-gallery { display: none !important; }
+.featured-project-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 1rem; border-top: 1px solid var(--line); }
+.featured-project-label, .collection-heading { color: #8c8c8c; font: .65rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .09em; }
+.featured-project-controls { display: flex; gap: .5rem; }
+.featured-project-controls button { width: 2.5rem; height: 2.5rem; border: 1px solid #454545; background: #111; color: #fff; cursor: pointer; font-size: 1.1rem; }
+.featured-project-controls button:hover, .featured-project-controls button:focus-visible { background: #2a2a2a; border-color: #777; }
+.featured-project-progress { display: flex; gap: .3rem; padding: 0 1rem 1rem; }
+.featured-project-dot { height: 3px; flex: 1; padding: 0; border: 0; background: #303030; cursor: pointer; }
+.featured-project-dot.active { background: #e4e4e4; }
+.collection-heading { display: flex; justify-content: space-between; padding: 1.15rem 0 .8rem; border-bottom: 1px solid var(--line); margin-top: .5rem; }
+@media (max-width: 760px) {
+  .featured-project-link { grid-template-columns: 1fr; }
+  .featured-project-visual, .featured-project-media > img, .featured-project-media .project-cover { min-height: clamp(230px, 64vw, 370px); }
+  .featured-project-info { border-left: 0; border-top: 1px solid var(--line); padding: 1.3rem; }
+  .featured-project-info .project-info h3 { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+  .featured-project-nav { padding: .75rem; }
+  .featured-project-progress { padding: 0 .75rem .75rem; }
+}
