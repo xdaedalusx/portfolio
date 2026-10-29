@@ -205,7 +205,16 @@ h1, h2, h3, p { margin-top: 0; }
   object-fit: contain;
   object-position: center;
   background: #101010;
-  transition: opacity .22s ease;
+  /* Keep source screenshots at their original brightness; only carousel controls may fade. */
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal;
+  transition: none;
+}
+.project-card:hover .project-cover > img,
+.project-cover:focus-within > img {
+  opacity: 1 !important;
+  filter: none !important;
 }
 .project-featured .project-cover { height: clamp(280px, 44vw, 520px); }
 .project-grid .project-cover { height: clamp(240px, 28vw, 360px); }
