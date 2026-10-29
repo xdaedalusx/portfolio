@@ -1,4 +1,4 @@
-This repository contains a collection of professional and academic projects, including augmented reality research, UX case studies, and interactive prototypes. It serves as an archive of work completed between 2019 and 2025, spanning roles in industry, academia, and personal innovation.
+# This repository contains a collection of professional and academic projects, including augmented reality research, UX case studies, and interactive prototypes. It serves as an archive of work completed between 2019 and 2025, spanning roles in industry, academia, and personal innovation.
 
 # Daniel Delgado, PhD – Professional Project Archive
 
