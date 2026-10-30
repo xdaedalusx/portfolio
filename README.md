@@ -6,7 +6,7 @@ A collection of academic research, software, and design projects spanning augmen
 
 ## About
 
-I’m a computer scientist and UX researcher based in San Francisco, California. I earned my PhD in Computer Science from the University of Florida in 2026. My work explores human–computer interaction, augmented reality, collaboration, and user-centered technology.
+I’m a computer scientist and UX researcher based in San Francisco, California. I earned my PhD in Computer Science from the University of Florida in 2025. My work explores human–computer interaction, augmented reality, collaboration, and user-centered technology.
 
 ## Projects
 
