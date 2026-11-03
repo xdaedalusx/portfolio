@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909"><title>Which Mandelbrot Set Zoom Are You?</title>
+<style>
+:root{color-scheme:dark;--bg:#090909;--panel:#111;--line:#292929;--muted:#929292;--white:#f2f2f2;--accent:#d7ff64}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{width:min(900px,calc(100% - 36px));margin:0 auto;padding:64px 0 80px}.eyebrow{font:11px/1.4 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(2.6rem,8vw,5.8rem);line-height:.94;letter-spacing:-.075em;max-width:760px;margin:22px 0}h1 span{color:#777}.intro{max-width:570px;color:#aaa;font-size:1.05rem;margin:24px 0 42px}.rule{border-top:1px solid var(--line);margin:30px 0}.question{padding:22px 0;border-bottom:1px solid var(--line)}.question h2{font-size:1.05rem;letter-spacing:-.02em;margin:0 0 15px}.number{font:11px ui-monospace,monospace;color:var(--accent);margin-right:10px}.options{display:flex;flex-wrap:wrap;gap:9px}.option{position:relative}.option input{position:absolute;opacity:0;pointer-events:none}.option label{display:block;border:1px solid #333;border-radius:3px;padding:10px 14px;color:#bbb;cursor:pointer;transition:.18s}.option label:hover{border-color:#888;color:white}.option input:checked+label{border-color:var(--accent);color:var(--accent);background:#d7ff6410}.actions{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}button{border:1px solid var(--accent);background:var(--accent);color:#090909;padding:13px 19px;font:600 13px ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;border-radius:2px}button.secondary{background:transparent;color:var(--white);border-color:#444}button:hover{filter:brightness(.9)}button:disabled{opacity:.35;cursor:not-allowed}.hint{font-size:12px;color:var(--muted)}#result{display:none;margin-top:44px}.result-head{display:flex;justify-content:space-between;gap:15px;align-items:end;flex-wrap:wrap}.result-head h2{font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:-.06em;margin:7px 0 14px}.frame{border:1px solid #333;background:#050505;padding:8px;margin:20px 0 14px}canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;background:#080808}.meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#888;font:11px ui-monospace,monospace}.caption{color:#aaa;max-width:650px;margin:20px 0 24px}.result-actions{display:flex;gap:10px;flex-wrap:wrap}.foot{margin-top:65px;color:#666;font:11px ui-monospace,monospace}.status{color:var(--accent);font:11px ui-monospace,monospace;margin-top:10px}@media(max-width:600px){main{padding-top:42px}.options{display:grid;grid-template-columns:1fr 1fr}.option label{height:100%}}
+</style></head>
+<body><main>
+<div class="eyebrow">A highly unscientific personality experience / 001</div>
+<h1>Which Mandelbrot<br><span>Set Zoom Are You?</span></h1>
+<p class="intro">Seven questions. Absolutely no psychological validity. One randomly generated little window into mathematical infinity. Let's find your zoom.</p>
+<form id="quiz">
+<section class="question"><h2><span class="number">01 /</span>It's Saturday. What's the move?</h2><div class="options">
+<div class="option"><input required type="radio" name="q1" id="q1a" value="a"><label for="q1a">A spontaneous side quest</label></div><div class="option"><input type="radio" name="q1" id="q1b" value="b"><label for="q1b">A carefully curated plan</label></div><div class="option"><input type="radio" name="q1" id="q1c" value="c"><label for="q1c">Stay in. See what happens.</label></div><div class="option"><input type="radio" name="q1" id="q1d" value="d"><label for="q1d">Say yes to everything</label></div></div></section>
+<section class="question"><h2><span class="number">02 /</span>Pick a texture.</h2><div class="options">
+<div class="option"><input required type="radio" name="q2" id="q2a" value="a"><label for="q2a">Chrome</label></div><div class="option"><input type="radio" name="q2" id="q2b" value="b"><label for="q2b">Velvet</label></div><div class="option"><input type="radio" name="q2" id="q2c" value="c"><label for="q2c">Concrete</label></div><div class="option"><input type="radio" name="q2" id="q2d" value="d"><label for="q2d">Something iridescent</label></div></div></section>
+<section class="question"><h2><span class="number">03 /</span>How do you handle a plot twist?</h2><div class="options">
+<div class="option"><input required type="radio" name="q3" id="q3a" value="a"><label for="q3a">Lean all the way in</label></div><div class="option"><input type="radio" name="q3" id="q3b" value="b"><label for="q3b">Pause. Gather intel.</label></div><div class="option"><input type="radio" name="q3" id="q3c" value="c"><label for="q3c">Pretend it was the plan</label></div><div class="option"><input type="radio" name="q3" id="q3d" value="d"><label for="q3d">Become briefly unavailable</label></div></div></section>
+<section class="question"><h2><span class="number">04 /</span>Choose a tiny luxury.</h2><div class="options">
+<div class="option"><input required type="radio" name="q4" id="q4a" value="a"><label for="q4a">A perfect playlist</label></div><div class="option"><input type="radio" name="q4" id="q4b" value="b"><label for="q4b">An empty calendar</label></div><div class="option"><input type="radio" name="q4" id="q4c" value="c"><label for="q4c">A really good snack</label></div><div class="option"><input type="radio" name="q4" id="q4d" value="d"><label for="q4d">An oddly specific new hobby</label></div></div></section>
+<section class="question"><h2><span class="number">05 /</span>Pick your current operating system.</h2><div class="options">
+<div class="option"><input required type="radio" name="q5" id="q5a" value="a"><label for="q5a">Curious but chaotic</label></div><div class="option"><input type="radio" name="q5" id="q5b" value="b"><label for="q5b">Quietly plotting</label></div><div class="option"><input type="radio" name="q5" id="q5c" value="c"><label for="q5c">Just happy to be here</label></div><div class="option"><input type="radio" name="q5" id="q5d" value="d"><label for="q5d">Running 37 tabs</label></div></div></section>
+<section class="question"><h2><span class="number">06 /</span>Pick a place to disappear for a while.</h2><div class="options">
+<div class="option"><input required type="radio" name="q6" id="q6a" value="a"><label for="q6a">A neon-lit arcade</label></div><div class="option"><input type="radio" name="q6" id="q6b" value="b"><label for="q6b">A quiet library after hours</label></div><div class="option"><input type="radio" name="q6" id="q6c" value="c"><label for="q6c">A coastline with no signal</label></div><div class="option"><input type="radio" name="q6" id="q6d" value="d"><label for="q6d">A city you've never visited</label></div></div></section>
+<section class="question"><h2><span class="number">07 /</span>What do you want more of right now?</h2><div class="options">
+<div class="option"><input required type="radio" name="q7" id="q7a" value="a"><label for="q7a">A little unpredictability</label></div><div class="option"><input type="radio" name="q7" id="q7b" value="b"><label for="q7b">Room to think</label></div><div class="option"><input type="radio" name="q7" id="q7c" value="c"><label for="q7c">A fresh perspective</label></div><div class="option"><input type="radio" name="q7" id="q7d" value="d"><label for="q7d">Something beautiful</label></div></div></section>
+<div class="actions"><button type="submit">Reveal my zoom ↗</button><span class="hint">Your answers are not stored or used to choose the image.</span></div>
+</form>
+<section id="result" aria-live="polite"><div class="result-head"><div><div class="eyebrow">Your randomly assigned window into infinity</div><h2 id="resultTitle">The ??? Zoom</h2></div><div class="eyebrow" id="zoomLevel">ZOOM LEVEL: ???</div></div><div class="frame"><canvas id="fractal" width="900" height="600" aria-label="A randomly generated colorful Mandelbrot set zoom"></canvas></div><div class="meta"><span id="coordinates">CENTER: —</span><span id="seed">SEED: —</span></div><p class="caption" id="caption">The universe has selected a tiny corner for you.</p><div class="result-actions"><button id="again" type="button">Generate another zoom ↻</button><button class="secondary" id="retake" type="button">Retake the quiz</button></div><div class="status" id="status"></div></section>
+<div class="foot">MANDELBROT SET / RANDOM ACCESS / NO PERSONALITY SCIENCE WAS PERFORMED</div>
+</main>
+<script>
+const $=s=>document.querySelector(s);const names=['The Cosmic Detour','The Velvet Boundary','The Infinite Side Quest','The Quiet Singularity','The Chrome Abyss','The Happy Accident','The Deep End','The Unreasonably Specific Zoom','The Other Dimension','The Almost-Butterfly'];const captions=['A reminder that there is always another layer. Even when you think you have reached the edge.','You contain multitudes. Some of them are probably fractals.','No map, no plan, just a beautiful place to get a little lost.','A tiny detail with an unreasonable amount of depth. Respect the process.','You were not supposed to find this place. But here we are.','A little chaos, a little symmetry, and absolutely no explanation.','The details are doing their own thing. You should, too.'];
+// Sample from known, visually rich boundary locations. The scale range is deliberately
+// constrained so every generated window retains visible structure instead of becoming
+// an almost-uniform patch of the set or escaping into empty exterior space.
+const regions=[
+  {x:-0.743643887037151,y:0.13182590420533,spread:0.000018,base:1800},
+  {x:-0.101096363845,y:0.956286510809,spread:0.000025,base:1450},
+  {x:-1.25066,y:0.02012,spread:0.000035,base:900},
+  {x:-0.235125,y:0.827215,spread:0.000025,base:1250},
+  {x:-0.7453,y:0.1864,spread:0.00003,base:1100},
+  {x:-1.768778833,y:0.001738996,spread:0.00002,base:850},
+  {x:-0.16,y:1.0405,spread:0.00003,base:950},
+  {x:-0.749,y:0.034,spread:0.000025,base:1300},
+  {x:-1.401155, y:0.0001,spread:0.000025,base:950},
+  {x:-0.088,y:0.654,spread:0.000025,base:1200},
+  {x:-0.745428, y:0.11299,spread:0.000012,base:2100},
+  {x:-0.748, y:0.1,spread:0.00001,base:1600}
+];
+let last=null;
+function randZoom(){
+  const r=regions[Math.floor(Math.random()*regions.length)];
+  const scale=r.base*(0.72+Math.random()*0.72);
+  return {cx:r.x+(Math.random()-.5)*r.spread,cy:r.y+(Math.random()-.5)*r.spread,scale,seed:Math.random().toString(36).slice(2,8).toUpperCase()};
+}
+function draw(z){
+  const c=$('#fractal'),ctx=c.getContext('2d'),w=c.width,h=c.height;
+  const img=ctx.createImageData(w,h),data=img.data,aspect=w/h;
+  const span=3.2/z.scale,xmin=z.cx-span/2,yspan=span/aspect,ymin=z.cy-yspan/2;
+  const maxIter=Math.min(1400,420+Math.floor(Math.log10(z.scale)*150));
+  const palette=[[5,7,24],[18,22,75],[30,65,145],[30,155,180],[120,220,170],[250,205,105],[230,105,95],[135,55,150],[5,7,24]];
+  for(let py=0;py<h;py++){
+    const ci=ymin+(py/h)*yspan;
+    for(let px=0;px<w;px++){
+      const cr=xmin+(px/w)*span;let x=0,y=0,it=0,x2=0,y2=0;
+      while(x2+y2<=256&&it<maxIter){y=2*x*y+ci;x=x2-y2+cr;x2=x*x;y2=y*y;it++;}
+      const p=(py*w+px)*4;
+      if(it===maxIter){data[p]=3;data[p+1]=5;data[p+2]=15;data[p+3]=255;continue;}
+      const mag=Math.sqrt(x2+y2);
+      const smooth=it+1-Math.log2(Math.max(1,Math.log2(mag)));
+      const band=(smooth*0.19+Math.log2(z.scale)*0.7)% (palette.length-1);
+      const k=Math.floor(band),f=band-k,a=palette[k],b=palette[k+1];
+      // A gentle nonlinear brightness curve keeps fine filaments visible.
+      const shade=0.55+0.45*Math.pow(Math.sin(Math.PI*f),0.35);
+      data[p]=Math.min(255,(a[0]+(b[0]-a[0])*f)*shade);
+      data[p+1]=Math.min(255,(a[1]+(b[1]-a[1])*f)*shade);
+      data[p+2]=Math.min(255,(a[2]+(b[2]-a[2])*f)*shade);
+      data[p+3]=255;
+    }
+  }
+  ctx.putImageData(img,0,0);
+}
+function reveal(){last=randZoom();$('#resultTitle').textContent=names[Math.floor(Math.random()*names.length)];$('#caption').textContent=captions[Math.floor(Math.random()*captions.length)];$('#zoomLevel').textContent='ZOOM LEVEL: '+last.scale.toFixed(0)+'×';$('#coordinates').textContent='CENTER: '+last.cx.toFixed(7)+' / '+last.cy.toFixed(7);$('#seed').textContent='SEED: '+last.seed;$('#status').textContent='Rendering your extremely random universe…';$('#result').style.display='block';requestAnimationFrame(()=>{draw(last);$('#status').textContent='Rendered locally in your browser.';$('#result').scrollIntoView({behavior:'smooth',block:'start'})})}
+$('#quiz').addEventListener('submit',e=>{e.preventDefault();if(!$('#quiz').reportValidity())return;reveal()});$('#again').addEventListener('click',reveal);$('#retake').addEventListener('click',()=>{$('#result').style.display='none';$('#quiz').reset();window.scrollTo({top:0,behavior:'smooth'})});
+</script></body></html>
