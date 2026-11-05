@@ -306,3 +306,12 @@ h1, h2, h3, p { margin-top: 0; }
   .featured-project-nav { padding: .75rem; }
   .featured-project-progress { padding: 0 .75rem .75rem; }
 }
+
+/* Galaxy Viz project preview */
+.galaxy-cover { min-height: 270px; display: grid; place-items: center; background: radial-gradient(ellipse at 50% 48%, #18202b 0%, #0b1018 42%, #090909 78%); }
+.galaxy-visual-art { position: absolute; inset: 0; overflow: hidden; background-image: radial-gradient(1px 1px at 12% 22%, #d9e6ff 99%, transparent), radial-gradient(1px 1px at 83% 18%, #a9c7ff 99%, transparent), radial-gradient(1px 1px at 74% 72%, #fff 99%, transparent), radial-gradient(1px 1px at 22% 78%, #b8d5ff 99%, transparent), radial-gradient(1px 1px at 48% 12%, #fff 99%, transparent), radial-gradient(1px 1px at 92% 54%, #d4e3ff 99%, transparent); }
+.galaxy-orbit { position: absolute; left: 50%; top: 48%; width: min(70%, 510px); aspect-ratio: 1.65; border: 1px solid #9dbbe8a6; border-radius: 50%; transform: translate(-50%, -50%) rotate(-24deg); box-shadow: 0 0 24px #82a9e51a, inset 0 0 24px #82a9e510; }
+.galaxy-orbit.orbit-b { width: min(56%, 410px); transform: translate(-50%, -50%) rotate(32deg); border-color: #c0d4f078; }
+.galaxy-orbit.orbit-c { width: min(42%, 310px); transform: translate(-50%, -50%) rotate(75deg); border-color: #8eacd078; }
+.galaxy-core { position: absolute; left: 50%; top: 48%; width: 13px; height: 13px; border-radius: 50%; transform: translate(-50%, -50%); background: #e8f1ff; box-shadow: 0 0 12px 4px #9bc4ff9c, 0 0 45px 18px #6b9de64d; }
+.galaxy-stars { position: absolute; inset: 0; background: radial-gradient(circle at 29% 36%, #dceaff 0 2px, transparent 3px), radial-gradient(circle at 67% 28%, #c6dcff 0 2px, transparent 3px), radial-gradient(circle at 72% 63%, #e5efff 0 2px, transparent 3px), radial-gradient(circle at 36% 70%, #9fc2f5 0 2px, transparent 3px), radial-gradient(circle at 54% 20%, #fff 0 1px, transparent 2px), radial-gradient(circle at 18% 59%, #fff 0 1px, transparent 2px); }
