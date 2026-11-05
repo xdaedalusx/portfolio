@@ -10,6 +10,15 @@ I’m a computer scientist and UX researcher based in San Francisco, California.
 
 ## Projects
 
+### Galaxy Viz — Interactive Paper Citation Galaxy
+
+An interactive 3D visualization of a research-paper network. Explore citation relationships, similarity links, clusters, and the structure of a scholarly landscape through a browser-based WebGL viewer.
+
+**Technologies:** JavaScript, Three.js, WebGL, data visualization, network graphs
+
+- [**Open the live Galaxy Viz website**](https://xdaedalusx.github.io/galaxy-viz/)
+- [View Galaxy Viz source repository](https://github.com/xdaedalusx/galaxy-viz)
+
 ### Shared-Gaze Visualization in Augmented Reality
 Developed and evaluated shared-gaze visualizations for collaborative AR tasks, investigating their effects on communication, social presence, and task performance.
 
@@ -45,7 +54,23 @@ A SwiftUI media player inspired by the customizable interfaces of classic Window
 
 [View iCarus Repository](https://github.com/xdaedalusx/icarus)
 
+### Mandelbrot Explorer
+An interactive fractal playground built with JavaScript and HTML Canvas. Zoom into the boundary, select regions, experiment with color maps, and export custom renders.
+
+**Technologies:** JavaScript, HTML Canvas, generative art, mathematics
+
+[Open the Mandelbrot Explorer](https://xdaedalusx.github.io/portfolio/mandelbrot.html)
+
 [View All Projects](Projects/)
+
+## Website & GitHub Pages
+
+The portfolio is published as a static website using **GitHub Pages**:
+
+- [**Portfolio website**](https://xdaedalusx.github.io/portfolio/) — the main portfolio, project collection, publications, and interactive Mandelbrot explorer.
+- [**Galaxy Viz website**](https://xdaedalusx.github.io/galaxy-viz/) — the standalone interactive 3D paper-network visualization, hosted separately from the portfolio.
+
+The Galaxy Viz viewer is its own project and repository. Its GitHub Pages site opens directly to the visualization; the portfolio's Galaxy Viz project card links to that live viewer.
 
 ## Publications
 
@@ -58,10 +83,11 @@ A SwiftUI media player inspired by the customizable interfaces of classic Window
 ## Skills
 
 - **Research:** UX research, experimental design, usability testing, eye-tracking studies
-- **Development:** Unity, C#, Python, Swift, SwiftUI
+- **Development:** Unity, C#, Python, Swift, SwiftUI, JavaScript
 - **XR:** Augmented reality, virtual reality, spatial interaction, HoloLens 2
 - **Design:** Interaction design, prototyping, Figma
 - **Data Analysis:** R, Python, MATLAB, statistical analysis
+- **Creative Technology:** Three.js, WebGL, interactive data visualization
 
 ## Resume & CV
 
