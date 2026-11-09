@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#090909" name="theme-color"/>
+<meta content="A UX case study of iCarus, a macOS media player whose look is a skin: it downloads, plays, and imports Windows Media Player skins from the early 2000s." name="description"/>
+<title>iCarus — UX Case Study | Daniel Delgado, PhD</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="case-study.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+</head>
+<body>
+<div class="site-shell">
+<header class="topbar">
+<a aria-label="Daniel Delgado home" class="wordmark" href="index.html">DD<span>®</span></a>
+<nav aria-label="Main navigation" class="nav">
+<a href="index.html#work">Work</a>
+<a href="index.html#about">About</a>
+<a href="index.html#publications">Publications</a>
+<a href="index.html#contact">Contact <span aria-hidden="true">↗</span></a>
+</nav>
+<button aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle">MENU <span>＋</span></button>
+</header>
+
+<main id="top" class="case-study icarus-cs">
+<section class="hero cs-hero">
+<div class="eyebrow"><a class="cs-back" href="index.html#work">← ALL WORK</a> <span class="eyebrow-separator">/</span> UX CASE STUDY <span class="eyebrow-separator">/</span> 2026</div>
+<h1>iCarus.<br/><span class="muted">A player whose look is a setting.</span></h1>
+<p class="cs-lede">What if a media player could wear any interface, including the hand-made skins of the early 2000s, without changing how it plays? iCarus separates what the player does from how it looks, and it downloads what you listen to.</p>
+<div class="cs-actions">
+<a class="contact-button" href="https://github.com/xdaedalusx/icarus" rel="noreferrer" target="_blank">VIEW THE REPOSITORY <span>↗</span></a>
+<a class="text-link" href="https://wmpskinsarchive.neocities.org" rel="noreferrer" target="_blank">Browse the skin archive <span>↗</span></a>
+</div>
+<dl class="cs-meta">
+<div><dt>ROLE</dt><dd>Concept, UX and interaction design, SwiftUI development</dd></div>
+<div><dt>YEAR</dt><dd>2026</dd></div>
+<div><dt>TYPE</dt><dd>Personal project, not a validated product</dd></div>
+<div><dt>STACK</dt><dd>SwiftUI, AppKit, AVAudioEngine, JavaScriptCore, yt-dlp</dd></div>
+</dl>
+</section>
+
+<figure class="cs-figure">
+<div class="cs-shots">
+<img alt="iCarus classic player interface" decoding="async" loading="lazy" src="https://raw.githubusercontent.com/xdaedalusx/icarus/main/screenshots/classic_simple_ui_play.png"/>
+<img alt="iCarus media download interface" decoding="async" loading="lazy" src="https://raw.githubusercontent.com/xdaedalusx/icarus/main/screenshots/classic_simple_ui_get.png"/>
+<img alt="iCarus custom skin example" decoding="async" loading="lazy" src="https://raw.githubusercontent.com/xdaedalusx/icarus/main/screenshots/sample_skin.png"/>
+</div>
+<figcaption>Play and Get in the default skin, and a custom skin on the same player.</figcaption>
+</figure>
+
+<section class="cs-section section-rule" id="summary">
+<div class="cs-label"><span class="section-kicker">01 / SUMMARY</span></div>
+<div class="cs-content">
+<h2>One player, <span class="muted">any interface.</span></h2>
+<p>iCarus is a macOS media player with two modes. <strong>Get</strong> is a front end for downloading music and video. <strong>Play</strong> is a player with a queue, a 10-band equalizer, a live visualizer and video. Every screen in Play is drawn by a skin, and the app can import Windows Media Player skins (.wmz), including the ones that run their own JavaScript.</p>
+<p>This is a personal design and engineering project. The question was how far a player&rsquo;s identity can be separated from its function, and what the experience of importing someone else&rsquo;s interface should feel like when it only partly works.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="problem">
+<div class="cs-label"><span class="section-kicker">02 / THE PROBLEM</span></div>
+<div class="cs-content">
+<h2>Players look alike, <span class="muted">and getting music in takes several tools.</span></h2>
+<ul class="cs-list">
+<li><strong>Sameness.</strong> Most players share one look, so there is no personality and little room to make it yours.</li>
+<li><strong>A split workflow.</strong> One tool downloads, another tags, another plays.</li>
+<li><strong>A lost design culture.</strong> Windows Media Player skins were small works of interface design, and many are now hard to run at all.</li>
+</ul>
+<p>The design question sat between two risks. If skins change the look but also the behavior, a bad skin breaks playback. If skins are locked down, there is nothing to express.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="goals">
+<div class="cs-label"><span class="section-kicker">03 / GOALS</span></div>
+<div class="cs-content">
+<h2>What it should do, <span class="muted">and what it should not claim.</span></h2>
+<div class="cs-two">
+<div>
+<h3>Goals</h3>
+<ul class="cs-list">
+<li>Keep playback identical whatever the skin looks like.</li>
+<li>Run real Windows Media Player skins, not a lookalike format.</li>
+<li>Tell the person plainly what an import could not do.</li>
+<li>Make downloading feel like part of listening, with files landing in Play.</li>
+<li>Stay safe when a skin carries code.</li>
+</ul>
+</div>
+<div>
+<h3>Non-goals</h3>
+<ul class="cs-list">
+<li>Being a full Windows Media Player replacement.</li>
+<li>Supporting every skin. Some use features I have not built.</li>
+<li>Proving the interface works for other people. No study was run.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="process">
+<div class="cs-label"><span class="section-kicker">04 / PROCESS</span></div>
+<div class="cs-content">
+<h2>Build a piece, <span class="muted">run it, report what broke.</span></h2>
+<p>I set the direction and made the design decisions, and built the code with Claude as a development partner. The loop was practical: Claude wrote a piece, I compiled and ran it on my Mac, and I reported what failed or felt wrong. That tester role mattered, because the assistant could not run the Swift build, so the real checks happened in my hands.</p>
+<ol class="cs-steps">
+<li>Engine and built-in skins</li>
+<li>Image-based skins</li>
+<li>Windows Media Player importer</li>
+<li>Scene tree for each skin</li>
+<li>Script sandbox</li>
+<li>Live bindings to the player</li>
+<li>Motion and timers</li>
+<li>Playlist, tooltips, fonts</li>
+<li>Get and its Advanced tab</li>
+</ol>
+<p>Real skins were the test suite. Two of them, Cerulean and Cyberchannel, each broke a different assumption about shape, color and button layout.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="decisions">
+<div class="cs-label"><span class="section-kicker">05 / KEY DECISIONS</span></div>
+<div class="cs-content">
+<h2>Where the structure <span class="muted">protects the experience.</span></h2>
+<div class="cs-decisions">
+<article class="cs-decision"><span class="cs-num">5.1</span><h3>One engine, many skins</h3><p>Functionality lives in the player engine and presentation lives in skins. A skin is a folder with a description file and images, so a new look can add or remove controls but cannot change how audio is played. The built-in skins (Classic, a compact Midnight, Retro Radio, Sunset) show the range of colors, type and spacing the same engine can carry.</p></article>
+<article class="cs-decision"><span class="cs-num">5.2</span><h3>Import an existing format</h3><p>Instead of inventing a skin format and starting with nothing, the importer reads Windows Media Player skins. It cuts out the transparent window shape, maps the skin&rsquo;s buttons and sliders to the player&rsquo;s controls, and keeps the layout as a tree. That gave the project a library of real, hand-made designs to meet and a reason to be strict about edge cases.</p></article>
+<article class="cs-decision"><span class="cs-num">5.3</span><h3>Say what did not work</h3><p>Imports often succeed only in part. After installing, iCarus lists what it could not map, and a Skin Inspector shows the skin&rsquo;s element tree, lets you hide parts and shows the script log. The person is never left to guess why a button does nothing.</p></article>
+<article class="cs-decision"><span class="cs-num">5.4</span><h3>Scripts, with limits and consent</h3><p>Many skins carry JavaScript, and supporting them breaks the &ldquo;skins are data&rdquo; rule. I allowed it with a sandbox: a script sees only a small copy of the player&rsquo;s object model, cannot reach files, the network or other programs, and runs only for a skin the person imported and allowed. Links open only for web addresses and only on a click.</p></article>
+<article class="cs-decision"><span class="cs-num">5.5</span><h3>Get feeds Play</h3><p>Get has a Basic tab for the common case: paste a link, pick a format, download. An Advanced tab exposes quality, file naming, playlist and time ranges, subtitles and more, and shows the exact command so nothing is hidden. Finished downloads appear in Play, and the cover art that comes with each song fills the player when there is no video. Options that could run other programs are blocked.</p></article>
+<article class="cs-decision"><span class="cs-num">5.6</span><h3>Small moments of feedback</h3><p>Resetting the equalizer glides every band back to neutral instead of snapping, so the person sees what changed. Buttons show tooltips, long titles scroll, and shaped, borderless skin windows can still be dragged. These are minor, but they are what makes an imported skin feel like it belongs to the player.</p></article>
+</div>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="problems">
+<div class="cs-label"><span class="section-kicker">06 / PROBLEMS FOUND</span></div>
+<div class="cs-content">
+<h2>What broke, <span class="muted">and what I changed.</span></h2>
+<dl class="cs-defs">
+<div><dt>The import button did nothing</dt><dd>Two file pickers were nested inside each other, so the click was swallowed. Replacing them with a single native open panel fixed it.</dd></div>
+<div><dt>Skins with similar colors mapped the wrong buttons</dt><dd>The importer matched button colors with a tolerance, which merged colors that were close but different. It now matches exactly first and only then allows a small tolerance.</dd></div>
+<div><dt>Shaped windows could not be dragged</dt><dd>Clicks on artwork passed through to the window below and the drag never started. It took two attempts, ending with a drag surface of my own, and moving a borderless skin window now works.</dd></div>
+<div><dt>Unsupported parts disappeared silently</dt><dd>Early imports dropped what they could not handle. That led to the post-import report and the inspector.</dd></div>
+<div><dt>Unsafe download options</dt><dd>Free-text options for the downloader could have run other programs. Those flags are blocked and the rest are checked before a download starts.</dd></div>
+</dl>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="claims">
+<div class="cs-label"><span class="section-kicker">07 / WHAT I CAN CLAIM</span></div>
+<div class="cs-content">
+<h2>Verified, <span class="muted">and not yet verified.</span></h2>
+<div class="cs-two">
+<div>
+<h3>Verified</h3>
+<ul class="cs-list">
+<li>The app builds and runs on my Mac, and playback, the equalizer, the visualizer and downloading work.</li>
+<li>Two real skins, Cerulean and Cyberchannel, were imported and run in the app, and the script logic of Cerulean was also checked outside the app against the same object model.</li>
+<li>Dragging, tooltips, the playlist pane and the equalizer glide were checked by hand.</li>
+</ul>
+</div>
+<div>
+<h3>Not verified</h3>
+<ul class="cs-list">
+<li>No usability study. I have no data on whether other people understand the import report or the inspector.</li>
+<li>Most other skins have not been run in the app. Sounds, fullscreen video and effect presets are not built.</li>
+<li>A script that never returns can still freeze the app, because there is no time limit yet.</li>
+</ul>
+</div>
+</div>
+<p class="cs-note">Treat this as a working prototype and a design argument, not evidence that most people want skins.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="learned">
+<div class="cs-label"><span class="section-kicker">08 / WHAT I LEARNED</span></div>
+<div class="cs-content">
+<h2>Lessons <span class="muted">for the next version.</span></h2>
+<ul class="cs-list">
+<li>Separating function from appearance is a design decision as much as a technical one. It is what lets people experiment without breaking anything.</li>
+<li>When you accept work you did not author, failure is part of the interface. A clear report of what did not work earns more trust than a silent best effort.</li>
+<li>Real, messy examples find problems that invented test cases never do.</li>
+<li>Allowing code in a skin trades safety for fidelity, so the limits and the consent step have to be designed, not just implemented.</li>
+<li>Small feedback, like the equalizer glide, makes a tool feel considered.</li>
+</ul>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="next">
+<div class="cs-label"><span class="section-kicker">09 / NEXT STEPS</span></div>
+<div class="cs-content">
+<h2>What I would <span class="muted">do next.</span></h2>
+<ul class="cs-list">
+<li>Add a time limit for skin scripts, so a faulty skin cannot freeze the app.</li>
+<li>Build the missing pieces: sounds, fullscreen video and effect presets.</li>
+<li>Run a small usability study on first use: can people go from a pasted link to a playing song, import a skin, and understand why something did not work?</li>
+<li>Test the importer on more skins and track what fails most often.</li>
+<li>Do an accessibility pass: keyboard control for every skin, VoiceOver labels for imported controls, a reduced-motion setting for the visualizer and equalizer glide, and a contrast check for skins I do not control.</li>
+</ul>
+</div>
+</section>
+
+<section class="contact-section section-rule" id="contact">
+<span class="section-kicker">SEE THE CODE</span>
+<h2>Read how<br/><span class="muted">the skins work.</span></h2>
+<div class="contact-bottom">
+<p>iCarus is a SwiftUI macOS app. The repository has the source, screenshots and a short README on the skin system.</p>
+<a class="contact-button" href="https://github.com/xdaedalusx/icarus" rel="noreferrer" target="_blank">OPEN THE REPOSITORY <span>↗</span></a>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<a class="wordmark" href="index.html">DD<span>®</span></a>
+<div class="footer-links">
+<a href="index.html#work">ALL WORK ↗</a>
+<a href="https://www.linkedin.com/in/danieldel1996/" rel="noreferrer" target="_blank">LINKEDIN ↗</a>
+<a href="https://github.com/xdaedalusx/portfolio" rel="noreferrer" target="_blank">GITHUB ↗</a>
+<a href="Resume/Resume.pdf">RESUME ↗</a>
+</div>
+<span class="copyright">© 2026 DANIEL DELGADO</span>
+</footer>
+</div>
+</body>
+</html>

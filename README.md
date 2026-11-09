@@ -54,6 +54,7 @@ A SwiftUI media player inspired by the customizable interfaces of classic Window
 **Technologies:** Swift, SwiftUI, macOS
 
 [View iCarus Repository](https://github.com/xdaedalusx/icarus)
+- [Read the iCarus UX case study](icarus-case-study.html)
 
 ### Mandelbrot Explorer
 An interactive fractal playground built with JavaScript and HTML Canvas. Zoom into the boundary, select regions, experiment with color maps, and export custom renders.
