@@ -203,3 +203,21 @@ document.querySelectorAll(".project-cover[data-carousel]").forEach((cover) => {
   cover.addEventListener("focusout", (event) => { if (!cover.contains(event.relatedTarget)) startTimer(); });
   showSlide(0); startTimer();
 });
+
+
+// Case-study buttons sit inside project cards that are themselves links. Handle them in the
+// capture phase so the card's own link (the live viewer) is not followed. Delegated, so it also
+// covers the copy of the card shown in the featured carousel.
+(() => {
+  const go = (event, newTab) => {
+    const button = event.target.closest && event.target.closest('[data-case-study]');
+    if (!button) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const href = button.getAttribute('data-case-study');
+    if (newTab || event.ctrlKey || event.metaKey || event.shiftKey) window.open(href, '_blank', 'noopener');
+    else window.location.href = href;
+  };
+  document.addEventListener('click', (event) => go(event, false), true);
+  document.addEventListener('auxclick', (event) => { if (event.button === 1) go(event, true); }, true);
+})();

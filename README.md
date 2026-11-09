@@ -18,6 +18,7 @@ An interactive 3D visualization of a research-paper network. Explore citation re
 
 - [**Open the live Galaxy Viz website**](https://xdaedalusx.github.io/galaxy-viz/)
 - [View Galaxy Viz source repository](https://github.com/xdaedalusx/galaxy-viz)
+- [Read the Galaxy Viz UX case study](galaxy-case-study.html)
 
 ### Shared-Gaze Visualization in Augmented Reality
 Developed and evaluated shared-gaze visualizations for collaborative AR tasks, investigating their effects on communication, social presence, and task performance.

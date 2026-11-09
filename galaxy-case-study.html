@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#090909" name="theme-color"/>
+<meta content="A UX case study of Galaxy Viz, a 3D, time-aware visualization that turns a collection of research papers into a galaxy you can fly through." name="description"/>
+<title>Galaxy Viz — UX Case Study | Daniel Delgado, PhD</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="case-study.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+</head>
+<body>
+<div class="site-shell">
+<header class="topbar">
+<a aria-label="Daniel Delgado home" class="wordmark" href="index.html">DD<span>®</span></a>
+<nav aria-label="Main navigation" class="nav">
+<a href="index.html#work">Work</a>
+<a href="index.html#about">About</a>
+<a href="index.html#publications">Publications</a>
+<a href="index.html#contact">Contact <span aria-hidden="true">↗</span></a>
+</nav>
+<button aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle">MENU <span>＋</span></button>
+</header>
+
+<main id="top" class="case-study">
+<section class="hero cs-hero">
+<div class="eyebrow"><a class="cs-back" href="index.html#work">← ALL WORK</a> <span class="eyebrow-separator">/</span> UX CASE STUDY <span class="eyebrow-separator">/</span> 2026</div>
+<h1>Galaxy Viz.<br/><span class="muted">A literature review you can fly through.</span></h1>
+<p class="cs-lede">What happens to the experience of reading a research landscape if we borrow the language of space exploration? Papers become stars, citations become filaments, and time becomes the galaxy forming.</p>
+<div class="cs-actions">
+<a class="contact-button" href="https://xdaedalusx.github.io/galaxy-viz/" rel="noreferrer" target="_blank">OPEN THE LIVE VIEWER <span>↗</span></a>
+<a class="text-link" href="https://github.com/xdaedalusx/galaxy-viz" rel="noreferrer" target="_blank">View source <span>↗</span></a>
+</div>
+<dl class="cs-meta">
+<div><dt>ROLE</dt><dd>Concept, UX and interaction design, front-end development</dd></div>
+<div><dt>YEAR</dt><dd>2026</dd></div>
+<div><dt>TYPE</dt><dd>Independent design exploration, not a validated product</dd></div>
+<div><dt>STACK</dt><dd>TypeScript data pipeline, Three.js / WebGL, GLSL, GitHub Pages</dd></div>
+</dl>
+</section>
+
+<figure class="cs-figure">
+<video autoplay muted loop playsinline preload="metadata" aria-label="Screen recording of the Galaxy Viz paper network" class="cs-video">
+<source src="Projects/Misc-Design/small-galaxy-viz.mp4" type="video/mp4"/>
+</video>
+<figcaption>The viewer, running on a generated collection of 800 papers.</figcaption>
+</figure>
+
+<section class="cs-section section-rule" id="summary">
+<div class="cs-label"><span class="section-kicker">01 / SUMMARY</span></div>
+<div class="cs-content">
+<h2>A graph that shows shape, history, <span class="muted">gaps and disputes.</span></h2>
+<p>Galaxy Viz turns a collection of academic papers into a 3D, time-aware galaxy. Each paper is a star, relationships are filaments, and a timeline plays the field growing paper by paper. Two experimental features go beyond a typical network graph: <strong>Voids</strong> mark related research areas that rarely cite each other, and <strong>Nebulas</strong> mark papers that take opposite stances on the same claim.</p>
+<p>This is a design exploration. The question was not whether this is a better literature-review tool, but what the experience of reading a research landscape feels like when it is spatial, animated and explorable.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="problem">
+<div class="cs-label"><span class="section-kicker">02 / THE PROBLEM</span></div>
+<div class="cs-content">
+<h2>A literature review asks for <span class="muted">three things at once.</span></h2>
+<ul class="cs-list">
+<li><strong>The shape of a field.</strong> Themes, clusters and the papers that matter most.</li>
+<li><strong>How it developed.</strong> What came first and what built on what.</li>
+<li><strong>What is missing or disputed.</strong> Open questions and limitations.</li>
+</ul>
+<p>The citation-graph tools I had seen were mostly flat, 2D node-link diagrams. They show structure well, but have three weaknesses:</p>
+<ul class="cs-list">
+<li>Dense graphs collapse into hairballs where edges overlap.</li>
+<li>Time is a filter or a label, not something you watch happen.</li>
+<li>Gaps and disagreements are invisible. A graph shows what exists, so absence and conflict have to be inferred by the reader.</li>
+</ul>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="goals">
+<div class="cs-label"><span class="section-kicker">03 / GOALS</span></div>
+<div class="cs-content">
+<h2>What it should do, <span class="muted">and what it should not claim.</span></h2>
+<div class="cs-two">
+<div>
+<h3>Goals</h3>
+<ul class="cs-list">
+<li>Make the shape of a collection legible on first load.</li>
+<li>Make growth over time something you watch, not decode.</li>
+<li>Represent absence (voids) and disagreement (nebulas) as visible things.</li>
+<li>Feel like exploring, with fluid movement and a distinct look.</li>
+<li>Run as a static site with no server.</li>
+</ul>
+</div>
+<div>
+<h3>Non-goals</h3>
+<ul class="cs-list">
+<li>Proving the approach helps real researchers. No study was run.</li>
+<li>Production-grade detection of gaps or conflicts in real literature.</li>
+<li>Replacing reference managers or search.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="process">
+<div class="cs-label"><span class="section-kicker">04 / PROCESS</span></div>
+<div class="cs-content">
+<h2>Short loops of idea, <span class="muted">build, look, adjust.</span></h2>
+<p>I set the direction and made the design decisions, and built the code with Claude as a development partner. Each loop followed the same pattern: describe the idea and its metaphor, build the smallest version that could be seen and tried, then look at it, find what confuses or breaks, and adjust.</p>
+<ol class="cs-steps">
+<li>Ideation</li>
+<li>Data pipeline and synthetic paper generator</li>
+<li>3D viewer</li>
+<li>WASD flight</li>
+<li>Voids</li>
+<li>Nebulas and analysis panel</li>
+<li>Abstracts for the example papers</li>
+<li>Deployment</li>
+</ol>
+<p>Building the data first, including a generator that plants known gaps and disputes, meant the interface and the detection could be tested against a known answer instead of by eye alone.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="decisions">
+<div class="cs-label"><span class="section-kicker">05 / KEY DECISIONS</span></div>
+<div class="cs-content">
+<h2>Where the metaphor <span class="muted">carries information.</span></h2>
+<div class="cs-decisions">
+<article class="cs-decision"><span class="cs-num">5.1</span><h3>Papers as stars</h3><p>Brightness and size show citations; color shows publication year, or topic. Important papers sit in the foreground without a legend lookup, and the galaxy look comes from the encoding itself rather than decoration.</p></article>
+<article class="cs-decision"><span class="cs-num">5.2</span><h3>Time as galaxy formation</h3><p>Every paper has a date and every link appears with its later endpoint. A timeline scrubs through, and Space plays it. New papers ignite with a flare and new links flash. Links only connect back to earlier papers and the layout is computed once, so stars never move during playback. The viewer sees growth, not reshuffling.</p></article>
+<article class="cs-decision"><span class="cs-num">5.3</span><h3>Moving through it</h3><p>Orbit and zoom suit looking at the whole, but make it hard to reach one region. I added game-style flight: W/S forward and back, A/D strafe, Q/E down and up, Shift for 3x speed. Speed scales with how zoomed in you are, so movement feels the same at galaxy scale and next to a single star.</p></article>
+<article class="cs-decision"><span class="cs-num">5.4</span><h3>Voids: showing what is missing</h3><p>A void is a dark, dashed region between two topic clusters whose papers read alike but rarely cite each other. It suggests that two areas look related and nobody has connected them. Its panel shows the evidence and states that the gap is within this collection, not in the field. A void that claimed more would mislead, so the wording is part of the design.</p></article>
+<article class="cs-decision"><span class="cs-num">5.5</span><h3>Nebulas: showing disagreement</h3><p>A nebula is a swirl of particles over papers that take opposite stances on the same claim: blue for support, rose for opposition, violet haze where they mix. Clicking one recolors its papers by side and opens an analysis panel with the split by paper count and by citations, both sides over time, whether opinion has shifted, and whether the sides cite each other or talk past each other. The visual invites a look; the panel answers whether it is a real dispute and how lopsided it is.</p></article>
+<article class="cs-decision"><span class="cs-num">5.6</span><h3>Clarity controls</h3><p>A Glow slider sets bloom strength. At 0 the scene renders without bloom, a clarity mode. The atmosphere is the hook, but sometimes a reader wants crisp positions, so they can trade one for the other.</p></article>
+<article class="cs-decision"><span class="cs-num">5.7</span><h3>Bring your own collection</h3><p>A graph can be dropped onto the page, and the pipeline imports BibTeX, Zotero CSV and JSON. The tool is only interesting if it works on the reader&rsquo;s own papers.</p></article>
+</div>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="problems">
+<div class="cs-label"><span class="section-kicker">06 / PROBLEMS FOUND</span></div>
+<div class="cs-content">
+<h2>What broke, <span class="muted">and what I changed.</span></h2>
+<dl class="cs-defs">
+<div><dt>Overlapping cluster labels</dt><dd>With many clusters, labels piled up. Labels are now prioritized (voids, then conflicts, then larger clusters) and any that would collide are hidden. Zooming in reveals more.</dd></div>
+<div><dt>Noisy void detection</dt><dd>The first approach mostly pointed at the wrong places: about one in four reported voids was a planted one. Redefining a void as similar text with few citations raised that to roughly 60&ndash;85% on larger synthetic collections. A void the user cannot trust is worse than no void.</dd></div>
+<div><dt>Closed panels still visible</dt><dd>A CSS rule overrode the HTML hidden attribute. An explicit rule now makes hidden always win.</dd></div>
+<div><dt>Timeline stepping twice</dt><dd>Arrow keys moved the slider twice when it had focus. Arrow stepping now applies only when focus is on the page body.</dd></div>
+<div><dt>Untrusted text</dt><dd>Titles and abstracts can come from user files, so all text is escaped and links are checked before rendering.</dd></div>
+</dl>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="claims">
+<div class="cs-label"><span class="section-kicker">07 / WHAT I CAN CLAIM</span></div>
+<div class="cs-content">
+<h2>Verified, <span class="muted">and not yet verified.</span></h2>
+<div class="cs-two">
+<div>
+<h3>Verified</h3>
+<ul class="cs-list">
+<li>The data pipeline has automated tests: imports, determinism, time invariants, void recovery against planted ground truth, and conflict detection.</li>
+<li>Interface logic (picking, panels, loading, escaping) was exercised in a headless browser, and the shaders were compiled in software WebGL.</li>
+<li>The viewer ran well on my own machine.</li>
+</ul>
+</div>
+<div>
+<h3>Not verified</h3>
+<ul class="cs-list">
+<li>No usability study. I have no data on whether people find voids or nebulas useful, understandable or trustworthy.</li>
+<li>Voids and nebulas were measured only on synthetic data. Real literature is noisier, and conflict detection needs claims extracted from full text, which is not built.</li>
+<li>The demo uses generated papers, so it shows the interaction, not real research findings.</li>
+</ul>
+</div>
+</div>
+<p class="cs-note">Treat this as a design prototype of an idea, not evidence that the idea works.</p>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="learned">
+<div class="cs-label"><span class="section-kicker">08 / WHAT I LEARNED</span></div>
+<div class="cs-content">
+<h2>Lessons <span class="muted">for the next version.</span></h2>
+<ul class="cs-list">
+<li>A metaphor works best when it carries information. Brightness for citations and ignition for time earn their place; pure decoration would not.</li>
+<li>Stable positions make time-based views readable.</li>
+<li>Features that claim to find something, such as gaps or conflicts, need their evidence and their limits visible in the interface.</li>
+<li>Planting known answers in synthetic data is a cheap way to test both an algorithm and the experience built on it.</li>
+<li>Atmosphere and clarity pull against each other, so give users the control.</li>
+</ul>
+</div>
+</section>
+
+<section class="cs-section section-rule" id="next">
+<div class="cs-label"><span class="section-kicker">09 / NEXT STEPS</span></div>
+<div class="cs-content">
+<h2>What I would <span class="muted">test next.</span></h2>
+<ul class="cs-list">
+<li>Run a small usability study: can participants find the most-cited paper, the start of a topic, a void and a dispute, and do they trust what they find?</li>
+<li>Compare against a flat 2D view of the same data on the same tasks.</li>
+<li>Try real collections and measure void quality against expert review.</li>
+<li>Add touch and trackpad-friendly navigation, and a guided first-use tour.</li>
+<li>Add an accessibility pass: keyboard-only use, a reduced-motion mode, a colorblind-safe option for the blue and rose stances, and screen-reader summaries.</li>
+</ul>
+</div>
+</section>
+
+<section class="contact-section section-rule" id="contact">
+<span class="section-kicker">TRY IT</span>
+<h2>Fly through<br/><span class="muted">the galaxy.</span></h2>
+<div class="contact-bottom">
+<p>The live viewer runs in your browser on a generated collection of papers. Drag to look, W A S D to move, Space to play time.</p>
+<a class="contact-button" href="https://xdaedalusx.github.io/galaxy-viz/" rel="noreferrer" target="_blank">OPEN THE VIEWER <span>↗</span></a>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<a class="wordmark" href="index.html">DD<span>®</span></a>
+<div class="footer-links">
+<a href="index.html#work">ALL WORK ↗</a>
+<a href="https://www.linkedin.com/in/danieldel1996/" rel="noreferrer" target="_blank">LINKEDIN ↗</a>
+<a href="https://github.com/xdaedalusx/portfolio" rel="noreferrer" target="_blank">GITHUB ↗</a>
+<a href="Resume/Resume.pdf">RESUME ↗</a>
+</div>
+<span class="copyright">© 2026 DANIEL DELGADO</span>
+</footer>
+</div>
+<script>
+// Respect reduced-motion: do not autoplay the hero video.
+(function () {
+  var v = document.querySelector('.cs-video');
+  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; }
+})();
+</script>
+</body>
+</html>
