@@ -93,8 +93,8 @@
 <h3>Non-goals</h3>
 <ul class="cs-list">
 <li>Being a full Windows Media Player replacement.</li>
-<li>Supporting every skin. Some use features I have not built.</li>
-<li>Proving the interface works for other people. No study was run.</li>
+<li>Supporting every skin. Some rely on features that are not built yet.</li>
+<li>Formal usability validation at this stage.</li>
 </ul>
 </div>
 </div>
@@ -105,7 +105,7 @@
 <div class="cs-label"><span class="section-kicker">04 / PROCESS</span></div>
 <div class="cs-content">
 <h2>Build a piece, <span class="muted">run it, report what broke.</span></h2>
-<p>I set the direction and made the design decisions, and built the code with Claude as a development partner. The loop was practical: Claude wrote a piece, I compiled and ran it on my Mac, and I reported what failed or felt wrong. That tester role mattered, because the assistant could not run the Swift build, so the real checks happened in my hands.</p>
+<p>I set the direction and made the design decisions, and built the code with Claude as a development partner. Each piece was written, then compiled and run on my Mac, and what failed or felt wrong drove the next change.</p>
 <ol class="cs-steps">
 <li>Engine and built-in skins</li>
 <li>Image-based skins</li>
@@ -128,7 +128,7 @@
 <div class="cs-decisions">
 <article class="cs-decision"><span class="cs-num">5.1</span><h3>One engine, many skins</h3><p>Functionality lives in the player engine and presentation lives in skins. A skin is a folder with a description file and images, so a new look can add or remove controls but cannot change how audio is played. The built-in skins (Classic, a compact Midnight, Retro Radio, Sunset) show the range of colors, type and spacing the same engine can carry.</p></article>
 <article class="cs-decision"><span class="cs-num">5.2</span><h3>Import an existing format</h3><p>Instead of inventing a skin format and starting with nothing, the importer reads Windows Media Player skins. It cuts out the transparent window shape, maps the skin&rsquo;s buttons and sliders to the player&rsquo;s controls, and keeps the layout as a tree. That gave the project a library of real, hand-made designs to meet and a reason to be strict about edge cases.</p></article>
-<article class="cs-decision"><span class="cs-num">5.3</span><h3>What did not work</h3><p>Imports often succeed only in part. After installing, iCarus lists what it could not map, and a Skin Inspector shows the skin&rsquo;s element tree, lets you hide parts and shows the script log. The person is never left to guess why a button does nothing.</p></article>
+<article class="cs-decision"><span class="cs-num">5.3</span><h3>Say what did not work</h3><p>Imports often succeed only in part. After installing, iCarus lists what it could not map, and a Skin Inspector shows the skin&rsquo;s element tree, lets you hide parts and shows the script log. The person is never left to guess why a button does nothing.</p></article>
 <article class="cs-decision"><span class="cs-num">5.4</span><h3>Scripts, with limits and consent</h3><p>Many skins carry JavaScript, and supporting them breaks the &ldquo;skins are data&rdquo; rule. I allowed it with a sandbox: a script sees only a small copy of the player&rsquo;s object model, cannot reach files, the network or other programs, and runs only for a skin the person imported and allowed. Links open only for web addresses and only on a click.</p></article>
 <article class="cs-decision"><span class="cs-num">5.5</span><h3>Get feeds Play</h3><p>Get has a Basic tab for the common case: paste a link, pick a format, download. An Advanced tab exposes quality, file naming, playlist and time ranges, subtitles and more, and shows the exact command so nothing is hidden. Finished downloads appear in Play, and the cover art that comes with each song fills the player when there is no video. Options that could run other programs are blocked.</p></article>
 <article class="cs-decision"><span class="cs-num">5.6</span><h3>Small moments of feedback</h3><p>Resetting the equalizer glides every band back to neutral instead of snapping, so the person sees what changed. Buttons show tooltips, long titles scroll, and shaped, borderless skin windows can still be dragged. These are minor, but they are what makes an imported skin feel like it belongs to the player.</p></article>
@@ -150,29 +150,28 @@
 </div>
 </section>
 
-<section class="cs-section section-rule" id="claims">
-<div class="cs-label"><span class="section-kicker">07 / WHAT I CAN CLAIM</span></div>
+<section class="cs-section section-rule" id="outcome">
+<div class="cs-label"><span class="section-kicker">07 / OUTCOME</span></div>
 <div class="cs-content">
-<h2>Verified, <span class="muted">and not yet verified.</span></h2>
+<h2>Working today, <span class="muted">and what is still missing.</span></h2>
 <div class="cs-two">
 <div>
-<h3>Verified</h3>
+<h3>Working today</h3>
 <ul class="cs-list">
-<li>The app builds and runs on my Mac, and playback, the equalizer, the visualizer and downloading work.</li>
-<li>Two real skins, Cerulean and Cyberchannel, were imported and run in the app, and the script logic of Cerulean was also checked outside the app against the same object model.</li>
-<li>Dragging, tooltips, the playlist pane and the equalizer glide were checked by hand.</li>
+<li>Playback, the 10-band equalizer, the live visualizer and downloading.</li>
+<li>Import of Windows Media Player skins, including their scripts. Cerulean and Cyberchannel run end to end in the app.</li>
+<li>Playlist pane, tooltips, scrolling text, shaped-window dragging and the equalizer glide.</li>
 </ul>
 </div>
 <div>
-<h3>Not verified</h3>
+<h3>Still missing</h3>
 <ul class="cs-list">
-<li>No usability study. I have no data on whether other people understand the import report or the inspector.</li>
-<li>Most other skins have not been run in the app. Sounds, fullscreen video and effect presets are not built.</li>
-<li>A script that never returns can still freeze the app, because there is no time limit yet.</li>
+<li>Sounds, fullscreen video and effect presets.</li>
+<li>A time limit for skin scripts, so a faulty skin cannot freeze the app.</li>
+<li>Coverage of the wider skin library, which has not been run in the app yet.</li>
 </ul>
 </div>
 </div>
-<p class="cs-note">Treat this as a working prototype and a design argument, not evidence that most people want skins.</p>
 </div>
 </section>
 
@@ -195,8 +194,7 @@
 <div class="cs-content">
 <h2>What I would <span class="muted">do next.</span></h2>
 <ul class="cs-list">
-<li>Add a time limit for skin scripts, so a faulty skin cannot freeze the app.</li>
-<li>Build the missing pieces: sounds, fullscreen video and effect presets.</li>
+<li>Add a time limit for skin scripts, then build sounds, fullscreen video and effect presets.</li>
 <li>Run a small usability study on first use: can people go from a pasted link to a playing song, import a skin, and understand why something did not work?</li>
 <li>Test the importer on more skins and track what fails most often.</li>
 <li>Do an accessibility pass: keyboard control for every skin, VoiceOver labels for imported controls, a reduced-motion setting for the visualizer and equalizer glide, and a contrast check for skins I do not control.</li>
