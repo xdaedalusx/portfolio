@@ -286,6 +286,9 @@
 :root:not([data-theme="dark"]) .carousel-control,
 :root:not([data-theme="dark"]) .carousel-status,
 :root:not([data-theme="dark"]) .cs-figure,
+:root:not([data-theme="dark"]) .cs-mini,
+:root:not([data-theme="dark"]) .cs-prob,
+:root:not([data-theme="dark"]) .cs-gallery,
 :root:not([data-theme="dark"]) .cs-shots,
 :root:not([data-theme="dark"]) .canvas-frame,
 :root:not([data-theme="dark"]) .featured-project-visual {

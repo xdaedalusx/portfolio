@@ -69,3 +69,25 @@
 .cs-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); }
 .cs-shots img { display: block; width: 100%; height: 100%; max-height: 520px; object-fit: contain; background: var(--c-080808); padding: .6rem; box-sizing: border-box; }
 @media (max-width: 760px) { .cs-shots { grid-template-columns: 1fr; } }
+
+/* Design sketches inside the key decisions. */
+.cs-mini { grid-column: 2; margin: 1.2rem 0 0; border: 1px solid var(--line); background: var(--c-080808); }
+.cs-mini-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.2rem; padding: 1.2rem; }
+.cs-mini img { display: block; height: auto; width: auto; max-width: 100%; max-height: 460px; }
+.cs-mini img.tall { width: min(100%, 300px); max-height: none; }
+.cs-mini img.wide { width: 100%; max-width: 560px; max-height: none; }
+.cs-mini figcaption { padding: .7rem 1rem; border-top: 1px solid var(--line); color: var(--c-8c8c8c); font: .65rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .06em; }
+@media (max-width: 760px) { .cs-mini { grid-column: 1; } }
+.cs-mini img.w348 { width: min(100%, 348px); max-height: none; }
+.cs-mini img.w380 { width: min(100%, 380px); max-height: none; }
+.cs-figure img.cs-hero { display: block; width: 100%; height: auto; padding: clamp(.8rem, 2.5vw, 2rem); box-sizing: border-box; }
+@media (max-width: 760px) { .cs-figure:has(.cs-hero) { overflow-x: auto; } .cs-figure img.cs-hero { width: 860px; max-width: none; } }
+
+.cs-defs .cs-prob { grid-column: 1 / -1; margin-top: 1rem; }
+.cs-defs .cs-prob img { width: 100%; max-width: 760px; height: auto; margin: 0 auto; }
+.cs-gallery ul { list-style: none; margin: 0; padding: 1.2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem 1rem; align-items: end; }
+.cs-gallery li { display: flex; flex-direction: column; align-items: center; gap: .55rem; text-align: center; }
+.cs-gallery .sk { height: 150px; display: flex; align-items: flex-end; justify-content: center; }
+.cs-gallery .sk img { max-height: 150px; max-width: 100%; width: auto; height: auto; }
+.cs-gallery b { font: 500 .65rem/1.2 "SFMono-Regular", Consolas, monospace; letter-spacing: .06em; color: var(--c-8c8c8c); font-weight: 500; }
+@media (max-width: 760px) { .cs-gallery ul { grid-template-columns: repeat(2, 1fr); } }
