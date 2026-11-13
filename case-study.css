@@ -181,3 +181,161 @@
     justify-self: start;
   }
 }
+
+
+/* iCarus Key Decisions: deliberate two-column editorial layout. */
+.icarus-cs .icarus-decisions {
+  gap: 1px;
+}
+
+.icarus-cs .icarus-decisions .cs-decision {
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: start;
+  column-gap: clamp(.8rem, 2vw, 1.25rem);
+  padding: clamp(1.25rem, 2.6vw, 2rem);
+}
+
+.icarus-cs .icarus-decisions .cs-num {
+  grid-row: 1;
+  padding-top: .2rem;
+}
+
+.icarus-cs .cs-decision-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .92fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: start;
+  min-width: 0;
+}
+
+.icarus-cs .cs-decision-copy,
+.icarus-cs .cs-decision-media-stack,
+.icarus-cs .icarus-decision-media {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.icarus-cs .cs-decision-copy h3 {
+  margin: 0 0 .7rem;
+}
+
+.icarus-cs .cs-decision-copy p {
+  max-width: 58ch;
+  line-height: 1.65;
+}
+
+.icarus-cs .icarus-decision-media,
+.icarus-cs .cs-decision-media-stack > figure {
+  margin: 0;
+}
+
+.icarus-cs .icarus-decision-media .cs-mini-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: .75rem;
+}
+
+.icarus-cs .icarus-decision-media .cs-mini-row img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 340px;
+  object-fit: contain;
+  justify-self: stretch;
+}
+
+.icarus-cs .icarus-decision-media .cs-mini-row img.wide,
+.icarus-cs .icarus-decision-media .cs-mini-row img.w348,
+.icarus-cs .icarus-decision-media .cs-mini-row img.w380 {
+  grid-column: 1 / -1;
+  width: auto;
+  max-width: 100%;
+  max-height: 390px;
+  justify-self: center;
+}
+
+.icarus-cs .icarus-decision-media figcaption,
+.icarus-cs .cs-decision-media-stack figcaption {
+  margin-top: .7rem;
+  line-height: 1.5;
+}
+
+.icarus-cs .cs-decision-media-stack {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.icarus-cs .cs-gallery ul {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .65rem;
+}
+
+.icarus-cs .cs-gallery li {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.icarus-cs .cs-gallery .sk {
+  display: flex;
+  min-height: 92px;
+  align-items: center;
+  justify-content: center;
+  padding: .45rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.icarus-cs .cs-gallery .sk img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.icarus-cs .cs-gallery b {
+  font-size: .68rem;
+  font-weight: 500;
+  color: var(--soft);
+  overflow-wrap: anywhere;
+}
+
+.icarus-cs .cs-decision-media-stack .icarus-import-figure .cs-mini-row {
+  display: flex;
+  justify-content: center;
+}
+
+.icarus-cs .icarus-import-figure img {
+  max-height: 230px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.icarus-cs .icarus-decision-text-only .cs-decision-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 760px) {
+  .icarus-cs .icarus-decisions .cs-decision {
+    grid-template-columns: 1fr;
+    row-gap: .35rem;
+  }
+
+  .icarus-cs .icarus-decisions .cs-num {
+    grid-row: auto;
+  }
+
+  .icarus-cs .cs-decision-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .icarus-cs .cs-gallery ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .icarus-cs .icarus-decision-media .cs-mini-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
