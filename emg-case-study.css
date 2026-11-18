@@ -1,0 +1,42 @@
+/* Extra rules for the Shared-Gaze case study only. Loads after case-study.css. */
+.cs-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 0 0 1.6rem; }
+.cs-stats > div { background: var(--panel); padding: 1.1rem 1.2rem; }
+.cs-stats dt { font-family: "SFMono-Regular", Consolas, monospace; font-size: .62rem; letter-spacing: .09em; color: var(--c-777777); margin-bottom: .45rem; }
+.cs-stats dd { margin: 0; font-size: 1.5rem; letter-spacing: -.04em; color: var(--c-eeeeee); line-height: 1.1; }
+.cs-stats dd small { display: block; margin-top: .4rem; font-size: .78rem; letter-spacing: 0; color: var(--c-a9a9a9); line-height: 1.4; }
+.cs-quote { margin: 0 0 1.1rem; padding: .3rem 0 .3rem 1rem; border-left: 2px solid var(--c-9bc4ff); color: var(--c-eeeeee); font-size: 1.02rem; max-width: 680px; }
+.cs-quote cite { display: block; margin-top: .3rem; font: .64rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .06em; color: var(--c-8c8c8c); font-style: normal; }
+.cs-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.cs-photos .cs-img { margin: .6rem 0 .4rem; }
+@media (max-width: 760px) { .cs-stats, .cs-photos { grid-template-columns: 1fr; } }
+
+/* Task guidance: needs table and funnel */
+.cs-funnel { list-style: none; margin: 0 0 1.6rem; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.cs-funnel li { background: var(--panel); padding: .9rem .8rem; color: var(--c-a9a9a9); font-size: .78rem; line-height: 1.35; }
+.cs-funnel li b { display: block; font-size: 1.5rem; letter-spacing: -.04em; color: var(--c-eeeeee); font-weight: 520; margin-bottom: .25rem; }
+.cs-needs { margin: 0 0 1.6rem; border: 1px solid var(--line); }
+.cs-needs h3 { margin: 0; padding: .7rem 1rem; background: var(--panel); border-bottom: 1px solid var(--line); font: .65rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .09em; color: var(--c-9bc4ff); font-weight: 400; }
+.cs-needs ol { margin: 0; padding: 0; list-style: none; }
+.cs-needs li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); padding: .55rem 1rem; border-bottom: 1px solid var(--line); color: var(--c-b3b3b3); font-size: .9rem; }
+.cs-needs li:last-child { border-bottom: 0; }
+.cs-needs li span { font: .65rem/1.9 "SFMono-Regular", Consolas, monospace; color: var(--c-777777); }
+@media (max-width: 760px) { .cs-funnel { grid-template-columns: 1fr 1fr; } }
+
+/* Keep emphasis legible in the light theme (case-study.css hard-codes light-on-dark text). */
+.case-study .cs-content strong, .case-study .cs-defs dt, .case-study .cs-note { color: var(--c-eeeeee) !important; }
+.case-study .cs-content a:not(.contact-button):not(.text-link) { color: var(--c-ffffff); text-decoration: underline; }
+.case-study .cs-list li { border-bottom-color: var(--line); }
+.case-study .cs-img a { background: var(--panel); }
+.case-study .cs-content p, .case-study .cs-list li { color: var(--c-b3b3b3); }
+.case-study .cs-defs dd { color: var(--c-a9a9a9); }
+.case-study .cs-content p.cs-note { color: var(--c-eeeeee) !important; }
+
+/* EMG: results table */
+.cs-table { width: 100%; border-collapse: collapse; margin: 0 0 1.6rem; font-size: .88rem; }
+.cs-table th { text-align: left; font: 400 .62rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .09em; color: var(--c-777777); padding: .6rem .6rem .6rem 0; border-bottom: 1px solid var(--line-strong); }
+.cs-table td { padding: .6rem .6rem .6rem 0; border-bottom: 1px solid var(--line); color: var(--c-b3b3b3); vertical-align: top; }
+.cs-table td:first-child { color: var(--c-eeeeee); }
+.cs-table .grp td { padding-top: 1.1rem; font: 400 .62rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .09em; color: var(--c-9bc4ff); border-bottom: 0; }
+.cs-scroll { overflow-x: auto; }
+.cs-photos.cs-four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cs-img.cs-fit img { max-height: 340px; width: auto; max-width: 100%; margin: 0 auto; }
