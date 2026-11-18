@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#090909" name="theme-color"/>
+<meta content="A UX research case study on what people need from task guidance systems, based on a contextual inquiry of eight people cooking in their own kitchens." name="description"/>
+<title>Task Guidance User Needs — UX Case Study | Daniel Delgado, PhD</title>
+<script src="theme.js"></script>
+<link href="theme.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="case-study.css" rel="stylesheet"/>
+<link href="task-guidance-case-study.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+</head>
+<body>
+<div class="site-shell">
+<header class="topbar">
+<a aria-label="Daniel Delgado home" class="wordmark" href="index.html">DD<span>®</span></a>
+<nav aria-label="Main navigation" class="nav">
+<a href="index.html#work">Work</a>
+<a href="index.html#about">About</a>
+<a href="index.html#publications">Publications</a>
+<a href="index.html#contact">Contact <span aria-hidden="true">↗</span></a>
+</nav>
+<button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 1.2a5.8 5.8 0 0 1 0 11.6z" fill="currentColor"/></svg></button>
+<button aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle">MENU <span>＋</span></button>
+</header>
+
+<main id="top" class="case-study">
+<section class="hero cs-hero">
+<div class="eyebrow"><a class="cs-back" href="index.html#work">← ALL WORK</a> <span class="eyebrow-separator">/</span> UX CASE STUDY <span class="eyebrow-separator">/</span> 2024</div>
+<h1>Task Guidance.<br/><span class="muted">What people need when a recipe gets hard.</span></h1>
+<p class="cs-lede">Before building guidance for complex tasks, we watched eight people cook an unfamiliar recipe in their own kitchens. Where they struggled became fifteen user needs that designers can use well beyond cooking.</p>
+<div class="cs-actions">
+<a class="contact-button" href="Publications/Understanding-User-Needs.pdf">READ THE PAPER <span>↗</span></a>
+<a class="text-link" href="https://github.com/xdaedalusx/portfolio/tree/main/Projects/Developing-User-Needs-for-Task-Guidance" rel="noreferrer" target="_blank">View the project <span>↗</span></a>
+</div>
+<dl class="cs-meta">
+<div><dt>ROLE</dt><dd>Co-first author (equal contribution), UX research</dd></div>
+<div><dt>YEAR</dt><dd>2024, ACM DIS</dd></div>
+<div><dt>TYPE</dt><dd>Contextual inquiry, affinity diagramming</dd></div>
+<div><dt>TEAM</dt><dd>Barquero, Calvo, Delgado, Wang, Anthony, Ruiz (University of Florida, James Madison University)</dd></div>
+</dl>
+</section>
+
+<section class="cs-section section-rule" id="summary">
+<div class="cs-label"><span class="section-kicker">01 / SUMMARY</span></div>
+<div class="cs-content">
+<h2>Before designing guidance, <span class="muted">watch where people get stuck.</span></h2>
+<p>Task guidance systems, from GPS to smart speakers to AR headsets, are meant to help people finish a procedure. But there were few general principles for designing them. This study asks what people actually need in the middle of a task, using <strong>cooking</strong> as the test bed: it is familiar, it can be done at home, and it demands planning, memory, multitasking and attention all at once.</p>
+<p>I and my co-authors visited eight people in their own kitchens and observed them cooking an unfamiliar recipe. Careful analysis of what we saw produced <strong>15 user needs in four themes</strong>: object interaction, knowledge base, safety and task coordination. The work was published at ACM DIS 2024.</p>
+<dl class="cs-stats">
+<div><dt>PARTICIPANTS</dt><dd>8<small>Cooking in their own home kitchens</small></dd></div>
+<div><dt>USER NEEDS</dt><dd>15<small>Grouped into four themes</small></dd></div>
+<div><dt>VENUE</dt><dd>DIS 2024<small>ACM Designing Interactive Systems, Copenhagen</small></dd></div>
+</dl><figure class="cs-img cs-wide"><a href="Projects/Developing-User-Needs-for-Task-Guidance/Images/study-kitchen-recording.jpg" target="_blank" rel="noopener" aria-label="Open full-size image: An example frame from the study recordings."><img src="Projects/Developing-User-Needs-for-Task-Guidance/Images/study-kitchen-recording.jpg" loading="lazy" decoding="async" alt="A participant cooking in their home kitchen, as captured by the study camera."/></a><figcaption>An example frame from the study recordings.</figcaption></figure>
+</div>
+</section>
+<section class="cs-section section-rule" id="problem">
+<div class="cs-label"><span class="section-kicker">02 / THE PROBLEM</span></div>
+<div class="cs-content">
+<h2>Guidance is only useful <span class="muted">if it fits the person.</span></h2>
+<p>Paper checklists and written instructions fail in familiar ways: people lose their place, skip steps after an interruption, or believe a task is finished when it is not. Technology can help, but what helps depends on the user, the context, how guidance is delivered and when feedback arrives. Existing guidelines were mostly tied to one domain, and rarely covered dangerous situations.</p>
+<ul class="cs-list">
+<li><strong>Experts and novices differ.</strong> Too much information can hurt an expert (the expertise reversal effect), and too little hurts a novice.</li>
+<li><strong>Prior needs were narrow.</strong> They focused on a particular activity or on technical features.</li>
+<li><strong>Cooking was understudied for this.</strong> Human-food interaction offered pieces, but no comprehensive set of needs for guidance.</li>
+</ul>
+<p class="cs-note">Goal: build a set of user needs that designers can use for task guidance in cooking, and beyond it.</p>
+</div>
+</section>
+<section class="cs-section section-rule" id="method">
+<div class="cs-label"><span class="section-kicker">03 / METHOD</span></div>
+<div class="cs-content">
+<h2>A contextual inquiry <span class="muted">in real kitchens.</span></h2>
+<p>Contextual inquiry means observing people doing real work in their own setting. Participants cooked <strong>coq au vin</strong> from a paper recipe, using their own kitchens, appliances and utensils. A professional chef helped design the recipe so it had parallel tasks, unfamiliar techniques (such as blanching pearl onions and cutting carrots on a bias) and above-average complexity. That complexity was deliberate: it makes the moments where guidance could help easier to see.</p>
+<ul class="cs-list">
+<li><strong>Recording.</strong> One camera on the participant and the room, plus audio recorders on the lead researcher and participant.</li>
+<li><strong>Think-aloud.</strong> Participants narrated their thinking, and the researchers asked about specific choices, such as why a particular spatula was picked.</li>
+<li><strong>Light touch.</strong> One lead researcher and two others kept a discreet distance and only stepped in for safety or clarification. No music or TV was allowed, to hold attention.</li>
+<li><strong>Length.</strong> About two hours including setup and a post-study questionnaire, with over 85% of it spent cooking.</li>
+</ul>
+<div class="cs-photos"><figure class="cs-img "><a href="Projects/Developing-User-Needs-for-Task-Guidance/Images/study-setup-diagram.jpg" target="_blank" rel="noopener" aria-label="Open full-size image: The study setup in a participant's kitchen."><img src="Projects/Developing-User-Needs-for-Task-Guidance/Images/study-setup-diagram.jpg" loading="lazy" decoding="async" alt="Floor plan of a kitchen showing the positions of the participant, the lead researcher, additional researchers and the camera."/></a><figcaption>The study setup in a participant's kitchen.</figcaption></figure><div>
+<h3>Who took part</h3>
+<p>Eight adults (six women, two men) from the southeastern United States, aged 22 to 74 (mean 41.9). They rated their own cooking skill from 50 to 88 out of 100 (mean 64.9), so none saw themselves as beginners and none as complete experts. Only one had made coq au vin before.</p>
+</div></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="analysis">
+<div class="cs-label"><span class="section-kicker">04 / ANALYSIS</span></div>
+<div class="cs-content">
+<h2>From 828 sticky notes <span class="muted">to 15 needs.</span></h2>
+<p>Our four researchers wrote observations from the videos and notes onto virtual sticky notes, then built <strong>affinity diagrams</strong> bottom-up, working together in video calls and separately in between. We checked groupings against the recordings, and let notes sit in more than one group to avoid over-generalizing. Fewer than 10% of notes did not fit.</p>
+<ol class="cs-funnel">
+<li><b>828</b>sticky notes</li>
+<li><b>148</b>clusters</li>
+<li><b>33</b>related clusters</li>
+<li><b>15</b>user needs</li>
+<li><b>4</b>themes</li>
+</ol>
+</div>
+</section>
+<section class="cs-section section-rule" id="findings">
+<div class="cs-label"><span class="section-kicker">05 / FINDINGS</span></div>
+<div class="cs-content">
+<h2>Four themes, <span class="muted">fifteen needs.</span></h2>
+<p>Each need below came with concrete moments from the sessions. The strongest pattern was how often people left the recipe to look something up, ask someone, or improvise.</p>
+<div class="cs-needs"><h3>OBJECT INTERACTION</h3><ol><li><span>01</span>Help when working with unfamiliar objects</li><li><span>02</span>Help picking the right object quickly when there are several options</li><li><span>03</span>Know what to use as a substitute if the needed tool is missing</li></ol></div><div class="cs-needs"><h3>KNOWLEDGE BASE</h3><ol><li><span>04</span>Help finding objects in the working environment</li><li><span>05</span>Help understanding the definition of terms in a task</li><li><span>06</span>Help when performing tasks they are unfamiliar with</li><li><span>07</span>Guidance when things don't go as planned</li></ol></div><div class="cs-needs"><h3>SAFETY</h3><ol><li><span>08</span>Help handling tools</li><li><span>09</span>Help determining whether food is properly cooked</li><li><span>10</span>Help identifying and working with hot objects</li><li><span>11</span>Guidance on food safety, cross-contamination and washing ingredients</li></ol></div><div class="cs-needs"><h3>TASK COORDINATION</h3><ol><li><span>12</span>Advice on the ideal moment to prepare objects that must be ready ahead of time</li><li><span>13</span>Be able to perform activities between tasks and multitask</li><li><span>14</span>Be able to track time for different tasks</li><li><span>15</span>Know what task they are on and what comes next</li></ol></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="evidence">
+<div class="cs-label"><span class="section-kicker">06 / WHAT WE SAW</span></div>
+<div class="cs-content">
+<h2>Moments that <span class="muted">drove the needs.</span></h2>
+<div class="cs-decisions"><div class="cs-decision"><span class="cs-num">01</span><h3>Improvising a missing tool</h3><p>Six of eight participants did not own a Dutch oven and used something else. One nearly put a pot with a plastic handle and lid into a hot oven before a researcher stepped in. Participants turned to Google to work out substitutes.</p></div><div class="cs-decision"><span class="cs-num">02</span><h3>Terms nobody knew</h3><p>All participants needed help with unfamiliar terms. None knew what beurre manié was or how to make it. One searched, found a video, tried to copy it, and ended up with a mixture that looked nothing like it.</p></div><div class="cs-decision"><span class="cs-num">03</span><h3>A technique most people missed</h3><p>All but one participant peeled pearl onions by hand rather than blanching them, which took far longer. The one who searched for a video was the exception.</p></div><div class="cs-decision"><span class="cs-num">04</span><h3>Safety in small moments</h3><p>One participant cut themselves peeling carrots, and another cut vegetables while holding them in their hand. Hot-pan handles were touched to test them, and people judged doneness by sound, smell or sight, with mixed results.</p></div><div class="cs-decision"><span class="cs-num">05</span><h3>Timers and timing</h3><p>Six of eight used the oven or microwave timer, which only tracks one thing at a time. People forgot timers, left the oven idle too long, or turned it on too early, and the preheat ran past the point it was needed.</p></div></div><blockquote class="cs-quote">"…it is a pain to prepare the pearl onions…"<cite>PARTICIPANT 7</cite></blockquote><blockquote class="cs-quote">"I don't know how much talking I can keep doing about these little onions."<cite>PARTICIPANT 4</cite></blockquote><blockquote class="cs-quote">"…it was in a different place than what I usually do."<cite>PARTICIPANT 5, ON FORGETTING WHERE THEY HAD PUT A WINE CORK</cite></blockquote>
+</div>
+</section>
+<section class="cs-section section-rule" id="beyond">
+<div class="cs-label"><span class="section-kicker">07 / BEYOND COOKING</span></div>
+<div class="cs-content">
+<h2>Designing guidance <span class="muted">for other domains.</span></h2>
+<p>Cooking is a means, not the point. Because the needs reflect shared demands (following steps, using tools, managing time, staying safe), the paper shows how each theme could shape guidance in other fields:</p>
+<dl class="cs-defs">
+<div><dt>Object interaction</dt><dd>An engine-maintenance guide could show a novice detailed instructions for a torque wrench while only showing an expert the indicator, and use colour (green, red) to show correct or excessive force.</dd></div>
+<div><dt>Knowledge base</dt><dd>A user could ask where a tool is, and an AR overlay could highlight it. A request for more detail could bring up a video tutorial. If an error happens, the system could re-plan the sequence of steps.</dd></div>
+<div><dt>Safety</dt><dd>In an environment with shock hazards, AR could overlay colour-coded warnings directly on the hazard.</dd></div>
+<div><dt>Task coordination</dt><dd>A task list showing current and next steps that updates as the user progresses, completes or skips them.</dd></div>
+</dl>
+<p>The paper also notes that these themes are intertwined. For example, safe tool use and time efficiency depend on each other, so good guidance will usually combine features.</p>
+</div>
+</section>
+<section class="cs-section section-rule" id="limits">
+<div class="cs-label"><span class="section-kicker">08 / LIMITATIONS</span></div>
+<div class="cs-content">
+<h2>What this study cannot say.</h2>
+<ul class="cs-list">
+<li>Eight participants is enough for qualitative, exploratory findings, but not for claims about the whole population.</li>
+<li>One person cooked at a time. Cooking with others would change the dynamics.</li>
+<li>One recipe cannot cover the variety of cooking, and the focus on cooking means other domains may show further needs.</li>
+<li>Researchers in the home may have changed behaviour, and cultural background can shape technique in ways we may not have captured.</li>
+</ul>
+</div>
+</section>
+<section class="cs-section section-rule" id="prototype">
+<div class="cs-label"><span class="section-kicker">09 / FROM NEEDS TO A PROTOTYPE</span></div>
+<div class="cs-content">
+<h2>Putting the needs into <span class="muted">an AR interface.</span></h2>
+<p>The project continues into an AR task guidance prototype (Unity, HoloLens 2) that applies this kind of user-centered thinking. The images below show parts of that interface.</p>
+<div class="cs-photos"><figure class="cs-img "><a href="Projects/Developing-User-Needs-for-Task-Guidance/Images/object-highlight.jpeg" target="_blank" rel="noopener" aria-label="Open full-size image: Object highlighting in the AR interface."><img src="Projects/Developing-User-Needs-for-Task-Guidance/Images/object-highlight.jpeg" loading="lazy" decoding="async" alt="Highlighted object in the augmented reality guidance interface."/></a><figcaption>Object highlighting in the AR interface.</figcaption></figure><figure class="cs-img "><a href="Projects/Developing-User-Needs-for-Task-Guidance/Images/recipe-menu.jpeg" target="_blank" rel="noopener" aria-label="Open full-size image: Recipe menu in the AR interface."><img src="Projects/Developing-User-Needs-for-Task-Guidance/Images/recipe-menu.jpeg" loading="lazy" decoding="async" alt="Recipe menu from the augmented reality task guidance interface."/></a><figcaption>Recipe menu in the AR interface.</figcaption></figure></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="next">
+<div class="cs-label"><span class="section-kicker">10 / NEXT STEPS</span></div>
+<div class="cs-content">
+<h2>Where this goes.</h2>
+<ul class="cs-list">
+<li>Evaluate guidance prototypes against these 15 needs with real users.</li>
+<li>Study collaborative cooking and other recipes.</li>
+<li>Check which needs hold in other domains such as maintenance, assembly and medical tasks.</li>
+<li>Test with larger and more culturally varied groups.</li>
+</ul>
+<p>Read the full paper: <a href="Publications/Understanding-User-Needs.pdf">Understanding User Needs for Task Guidance Systems Through the Lens of Cooking</a> (DIS 2024). Co-authors: Alexander Barquero, Rodrigo L. Calvo, Isaac Wang, Lisa Anthony and Jaime Ruiz.</p>
+</div>
+</section>
+<section class="contact-section section-rule" id="contact">
+<span class="section-kicker">READ MORE</span>
+<h2>The full<br/><span class="muted">paper.</span></h2>
+<div class="contact-bottom">
+<p>Methods, all 15 needs with evidence, and design implications are in the DIS 2024 paper.</p>
+<a class="contact-button" href="Publications/Understanding-User-Needs.pdf">OPEN THE PAPER <span>↗</span></a>
+</div>
+</section>
+</main>
+<footer class="footer">
+<a class="wordmark" href="index.html">DD<span>®</span></a>
+<div class="footer-links">
+<a href="index.html#work">ALL WORK ↗</a>
+<a href="https://www.linkedin.com/in/danieldel1996/" rel="noreferrer" target="_blank">LINKEDIN ↗</a>
+<a href="https://github.com/xdaedalusx/portfolio" rel="noreferrer" target="_blank">GITHUB ↗</a>
+<a href="Resume/Resume.pdf">RESUME ↗</a>
+</div>
+<span class="copyright">© 2026 DANIEL DELGADO</span>
+</footer>
+</div>
+</body>
+</html>
