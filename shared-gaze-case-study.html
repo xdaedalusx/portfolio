@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#090909" name="theme-color"/>
+<meta content="A UX research case study of shared-gaze visualizations in augmented reality: three user studies on how to show collaborators where you are looking." name="description"/>
+<title>Shared-Gaze Visualizations — UX Case Study | Daniel Delgado, PhD</title>
+<script src="theme.js"></script>
+<link href="theme.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="case-study.css" rel="stylesheet"/>
+<link href="shared-gaze-case-study.css" rel="stylesheet"/>
+<script defer="" src="script.js"></script>
+</head>
+<body>
+<div class="site-shell">
+<header class="topbar">
+<a aria-label="Daniel Delgado home" class="wordmark" href="index.html">DD<span>®</span></a>
+<nav aria-label="Main navigation" class="nav">
+<a href="index.html#work">Work</a>
+<a href="index.html#about">About</a>
+<a href="index.html#publications">Publications</a>
+<a href="index.html#contact">Contact <span aria-hidden="true">↗</span></a>
+</nav>
+<button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Switch to dark theme"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.8" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 1.2a5.8 5.8 0 0 1 0 11.6z" fill="currentColor"/></svg></button>
+<button aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle">MENU <span>＋</span></button>
+</header>
+
+<main id="top" class="case-study">
+<section class="hero cs-hero">
+<div class="eyebrow"><a class="cs-back" href="index.html#work">← ALL WORK</a> <span class="eyebrow-separator">/</span> UX CASE STUDY <span class="eyebrow-separator">/</span> 2025</div>
+<h1>Shared Gaze.<br/><span class="muted">Seeing where your partner is looking.</span></h1>
+<p class="cs-lede">Headsets hide the eyes, and eye contact is how people coordinate. Three studies on how to show a collaborator's gaze in augmented reality without taking away control, privacy or the social side of working together.</p>
+<div class="cs-actions">
+<a class="contact-button" href="https://github.com/xdaedalusx/portfolio/tree/main/Projects/Shared-Gaze-Visualizations" rel="noreferrer" target="_blank">VIEW THE PROJECT <span>↗</span></a>
+<a class="text-link" href="Publications/Evaluation-of-SGV.pdf">Read the paper <span>↗</span></a>
+</div>
+<dl class="cs-meta">
+<div><dt>ROLE</dt><dd>Lead researcher: system design, study design, development, analysis</dd></div>
+<div><dt>YEAR</dt><dd>2025 (PhD dissertation, University of Florida)</dd></div>
+<div><dt>TYPE</dt><dd>Three controlled user studies, 72 participants</dd></div>
+<div><dt>STACK</dt><dd>HoloLens 2, Unity, MRTK2, C#, Photon, Azure Spatial Anchors</dd></div>
+</dl>
+</section>
+
+<section class="cs-section section-rule" id="summary">
+<div class="cs-label"><span class="section-kicker">01 / SUMMARY</span></div>
+<div class="cs-content">
+<h2>Giving collaborators back <span class="muted">the glance across the table.</span></h2>
+<p>Head-mounted displays hide the eyes, and eye contact is one of the quickest ways people coordinate. This research asks whether <strong>shared-gaze visualizations</strong> (SGVs), which show a partner where you are looking, can replace what the headset removes, in the noisy, task-focused settings of industrial work.</p>
+<p>I built a two-headset augmented reality system on stock HoloLens 2 devices and ran <strong>three collocated studies</strong> with 72 participants in total. Each study fed the next: the first found that overlays and timers hurt control, the second looked at whether you should see your own gaze, and the third added a new <strong>outline</strong> visualization and tested it against background noise.</p>
+<dl class="cs-stats">
+<div><dt>STUDIES</dt><dd>3<small>Within-subjects and mixed designs</small></dd></div>
+<div><dt>PARTICIPANTS</dt><dd>72<small>11, 21 and 40 across the three studies</small></dd></div>
+<div><dt>HARDWARE</dt><dd>2× HoloLens 2<small>Eye tracking at 30 Hz, no custom hardware</small></dd></div>
+</dl><figure class="cs-img cs-wide"><a href="Projects/Shared-Gaze-Visualizations/Images/task_view_unity.png" target="_blank" rel="noopener" aria-label="Open full-size image: Task view in Unity during development."><img src="Projects/Shared-Gaze-Visualizations/Images/task_view_unity.png" loading="lazy" decoding="async" alt="The shared-gaze augmented reality task as seen in the Unity editor."/></a><figcaption>Task view in Unity during development.</figcaption></figure>
+</div>
+</section>
+<section class="cs-section section-rule" id="problem">
+<div class="cs-label"><span class="section-kicker">02 / THE PROBLEM</span></div>
+<div class="cs-content">
+<h2>Industry 4.0 still needs people, <span class="muted">and people need to see each other.</span></h2>
+<p>Smart factories automate more each year, but human judgment, adaptability and oversight remain essential. AR lets workers share 3D information, yet two problems appear on the shop floor:</p>
+<ul class="cs-list">
+<li><strong>Headsets block social cues.</strong> The visor hides the eyes, so the glance that says "this one" disappears.</li>
+<li><strong>Noise degrades speech.</strong> Factories are loud, and verbal coordination suffers first.</li>
+<li><strong>Gaze displays can backfire.</strong> Prior work showed visualizations can overwhelm, distract, and take control and privacy away from the person being watched. Little of it had been tested in realistic tasks or for social effects.</li>
+</ul>
+<p class="cs-note">Overall question: how can we aid collaborators in industrial tasks through shared-gaze information in augmented reality?</p>
+</div>
+</section>
+<section class="cs-section section-rule" id="questions">
+<div class="cs-label"><span class="section-kicker">03 / RESEARCH QUESTIONS</span></div>
+<div class="cs-content">
+<h2>Three questions, <span class="muted">one per study.</span></h2>
+<div class="cs-decisions"><div class="cs-decision"><span class="cs-num">RQ1</span><h3>Control and privacy</h3><p>How do we present gaze while preserving users' sense of control and privacy during an assembly task?</p></div><div class="cs-decision"><span class="cs-num">RQ2</span><h3>Self-gaze</h3><p>How does seeing your own gaze change how you perceive shared-gaze visualizations?</p></div><div class="cs-decision"><span class="cs-num">RQ3</span><h3>Audio noise</h3><p>How does background noise change those perceptions, and how people use eye contact?</p></div></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="system">
+<div class="cs-label"><span class="section-kicker">04 / THE SYSTEM</span></div>
+<div class="cs-content">
+<h2>A prototype that runs <span class="muted">on stock headsets.</span></h2>
+<p>Two HoloLens 2 headsets run a Unity app (MRTK2, C#). A Photon network keeps both worlds in sync and spatial anchors align them to the same physical table. A control laptop sends wizard-of-oz commands and records data. The headsets' own eye trackers drive everything, with a nominal accuracy of 1.5°.</p>
+<ul class="cs-list">
+<li><strong>Logging.</strong> Gaze events are written on change: timestamp, user, object, gaze origin and direction.</li>
+<li><strong>Eye contact.</strong> An invisible 0.2 m sphere around each head detects eye contact, glances at the partner and shared focus, counting both instances and time.</li>
+<li><strong>Gaze ray.</strong> A 1 m red ray, under an inch wide, from each person's eyes along their gaze.</li>
+</ul>
+<div class="cs-gallery"><figure class="cs-img "><a href="Projects/Shared-Gaze-Visualizations/Images/architecture.png" target="_blank" rel="noopener" aria-label="Open full-size image: System architecture of the prototype."><img src="Projects/Shared-Gaze-Visualizations/Images/architecture.png" loading="lazy" decoding="async" alt="System architecture for the shared-gaze visualization prototype."/></a><figcaption>System architecture of the prototype.</figcaption></figure><figure class="cs-img "><a href="Projects/Shared-Gaze-Visualizations/Images/sphere_head_collider.png" target="_blank" rel="noopener" aria-label="Open full-size image: Head colliders used to detect eye contact."><img src="Projects/Shared-Gaze-Visualizations/Images/sphere_head_collider.png" loading="lazy" decoding="async" alt="Head collider representation used in the gaze system."/></a><figcaption>Head colliders used to detect eye contact.</figcaption></figure></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="visualizations">
+<div class="cs-label"><span class="section-kicker">05 / THE VISUALIZATIONS</span></div>
+<div class="cs-content">
+<h2>Four ways to show <span class="muted">where someone is looking.</span></h2>
+<dl class="cs-defs">
+<div><dt>Ray</dt><dd>A constant line from the partner's eyes to what they look at. Immediate, and its origin makes ownership obvious. Also the most intrusive.</dd></div>
+<div><dt>Hover</dt><dd>The looked-at object is highlighted with a colour change. Less intrusive, but the highlight can hide the object's own colour.</dd></div>
+<div><dt>Trigger</dt><dd>A visualization that appears after the gaze rests on an object for 1.7 seconds. Tested in study 1 only.</dd></div>
+<div><dt>Outline</dt><dd>A thin border around the looked-at object, inspired by Photoshop's Magic Wand. Designed in response to the first two studies, so the object stays fully visible.</dd></div>
+</dl>
+<figure class="cs-img "><a href="Projects/Shared-Gaze-Visualizations/Images/Michael_ray.jpg" target="_blank" rel="noopener" aria-label="Open full-size image: A partner's view during the study."><img src="Projects/Shared-Gaze-Visualizations/Images/Michael_ray.jpg" loading="lazy" decoding="async" alt="Participant view from the shared-gaze AR study."/></a><figcaption>A partner's view during the study.</figcaption></figure>
+</div>
+</section>
+<section class="cs-section section-rule" id="study1">
+<div class="cs-label"><span class="section-kicker">06 / STUDY 1</span></div>
+<div class="cs-content">
+<h2>Control and privacy.</h2>
+<p><strong>11 participants</strong> built virtual models (a house, a catapult, an aqueduct) in pairs, comparing ray, hover and trigger in a within-subjects Latin square.</p>
+<h3>What happened</h3>
+<p>There was no universal favourite. Some people liked the ray's immediacy, others preferred hover. The trigger, which revealed gaze after a 1.7 second timer, reduced people's sense of control, and the system needed to communicate its current state more clearly.</p>
+<h3>What I changed</h3>
+<ul class="cs-list">
+<li>Offer customizable visualizations rather than one default.</li>
+<li>Avoid automatic, time-based triggers, and always show the current state.</li>
+<li>Prefer hybrid hover-plus-object-recognition triggers.</li>
+<li>Use non-occlusive borders instead of overlays, which became the outline in study 3.</li>
+</ul>
+</div>
+</section>
+<section class="cs-section section-rule" id="study2">
+<div class="cs-label"><span class="section-kicker">07 / STUDY 2</span></div>
+<div class="cs-content">
+<h2>Should you see your own gaze?</h2>
+<p><strong>21 participants</strong> sorted virtual recycling debris flowing over a real table into physical bins, while spotting highlighted dangerous items. The design was 2×2: ray or hover, with the partner's gaze only (uni-directional) or both people's (bi-directional).</p>
+<dl class="cs-stats">
+<div><dt>OBJECTS SORTED</dt><dd>Ray &gt; hover<small>F(1,11)=5.77, p=.035. Directionality had no significant effect.</small></dd></div>
+<div><dt>SURVEY RELIABILITY</dt><dd>α = 0.94<small>Collaboration experience items Q1–Q11</small></dd></div>
+<div><dt>DANGEROUS OBJECTS</dt><dd>No difference<small>Across all four conditions</small></dd></div>
+</dl>
+<p>Most people preferred seeing only their partner's gaze, since it was less cluttered. Yet without their own gaze some felt left out and less sure of what they were doing. With hover in the bi-directional condition, ownership became confusing: two highlights on nearby objects made it hard to tell whose was whose. The ray did not have that problem because its origin shows who is looking.</p>
+<p>Participants also combined gaze with speech and gesture, so a gaze cue works best as one channel among several.</p>
+<p class="cs-note">Design response: let people switch self-gaze on and off, and add explicit ownership cues when more than one gaze is shown.</p>
+</div>
+</section>
+<section class="cs-section section-rule" id="study3">
+<div class="cs-label"><span class="section-kicker">08 / STUDY 3</span></div>
+<div class="cs-content">
+<h2>Outline, and noise.</h2>
+<p><strong>40 participants</strong> in 20 pairs did the same recycling task. Sound was a between-subjects factor (white noise at a factory-like level, or silence) and the visualization (ray, hover, outline) varied within subjects.</p>
+<dl class="cs-stats">
+<div><dt>PREFERENCE RANKING</dt><dd>Outline &gt; hover<small>Friedman χ²=6.65, p=.036, post-hoc p&lt;.05</small></dd></div>
+<div><dt>ENGAGEMENT (Q11)</dt><dd>p = .010<small>Sound × visualization. With sound on, outline beat hover.</small></dd></div>
+<div><dt>EYE CONTACT</dt><dd>Lower with outline<small>With sound on, ray and hover drew more eye-contact time</small></dd></div>
+</dl>
+<p>Noise did change how visualizations were perceived, and the outline came out best: rated less distracting and more engaging, and it ranked above hover. Performance did not differ across conditions.</p>
+<blockquote class="cs-quote">"Outlines were very visible."<cite>PARTICIPANT 4</cite></blockquote>
+<blockquote class="cs-quote">"[It was] clear for the current task."<cite>PARTICIPANT 35</cite></blockquote>
+<p>The lower eye contact with the outline should not be read as a social loss. It suggests the outline said enough about intent that partners did not need to look at each other to check.</p>
+<div class="cs-gallery"><figure class="cs-img "><a href="Projects/Shared-Gaze-Visualizations/Images/Azim_bottle.jpg" target="_blank" rel="noopener" aria-label="Open full-size image: Collaborative sorting task."><img src="Projects/Shared-Gaze-Visualizations/Images/Azim_bottle.jpg" loading="lazy" decoding="async" alt="Collaborative AR task involving a bottle."/></a><figcaption>Collaborative sorting task.</figcaption></figure><figure class="cs-img "><a href="Projects/Shared-Gaze-Visualizations/Images/Azim.jpg" target="_blank" rel="noopener" aria-label="Open full-size image: A participant wearing the headset."><img src="Projects/Shared-Gaze-Visualizations/Images/Azim.jpg" loading="lazy" decoding="async" alt="Participant using the shared-gaze AR system."/></a><figcaption>A participant wearing the headset.</figcaption></figure></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="principles">
+<div class="cs-label"><span class="section-kicker">09 / DESIGN PRINCIPLES</span></div>
+<div class="cs-content">
+<h2>What the three studies add up to.</h2>
+<div class="cs-decisions"><div class="cs-decision"><span class="cs-num">01</span><h3>Do not occlude what people are looking at</h3><p>Highlight edges, not surfaces. Overlays hid detail in study 1, and the outline won in study 3.</p></div><div class="cs-decision"><span class="cs-num">02</span><h3>Let people control it</h3><p>Customizable visualizations, no hidden timers, and self-gaze that can be turned on when needed.</p></div><div class="cs-decision"><span class="cs-num">03</span><h3>Make ownership clear</h3><p>Use a uni-directional view, or colour, shape or origin cues when several gazes are shown.</p></div><div class="cs-decision"><span class="cs-num">04</span><h3>Design for the environment</h3><p>Adapt to noise: more explicit cues when speech is hard to hear, subtler ones when it is easy.</p></div><div class="cs-decision"><span class="cs-num">05</span><h3>Support social communication, do not replace it</h3><p>Measure eye contact as well as task speed, and avoid designs that make people abandon natural behaviour.</p></div><div class="cs-decision"><span class="cs-num">06</span><h3>Be careful with multi-modal controls</h3><p>Voice commands can collide with conversation, and gestures can restrict movement.</p></div></div>
+</div>
+</section>
+<section class="cs-section section-rule" id="limits">
+<div class="cs-label"><span class="section-kicker">10 / LIMITATIONS</span></div>
+<div class="cs-content">
+<h2>What these studies cannot say.</h2>
+<ul class="cs-list">
+<li>Participants were adult volunteers doing a staged task on a table, not workers on a factory floor.</li>
+<li>Sessions were short, so long-term use and fatigue are untested.</li>
+<li>Eye contact was measured with head colliders, which approximate mutual gaze. The HoloLens 2 could not record point-of-view video while the app ran, so I could not review what people saw.</li>
+<li>Study 1 had 11 participants and no clear winner. Study 3's hypotheses H1–H4 were not supported, and the support for the outline comes from specific subjective measures.</li>
+<li>The hardware's 1.5° eye-tracking accuracy limits how small an object gaze can single out.</li>
+</ul>
+</div>
+</section>
+<section class="cs-section section-rule" id="next">
+<div class="cs-label"><span class="section-kicker">11 / NEXT STEPS</span></div>
+<div class="cs-content">
+<h2>Where this goes.</h2>
+<ul class="cs-list">
+<li>Evaluate adaptive visualizations that change style with noise level or detected communication need.</li>
+<li>Explore multi-modal control of gaze visibility (voice, gesture) without interfering with speech.</li>
+<li>Develop scalable ownership cues for teams larger than two.</li>
+<li>Take the outline into on-site pilots with industrial workers.</li>
+</ul>
+<p>Full results and methods are in the <a class="text-link" href="Publications/Evaluation-of-SGV.pdf">published papers</a> and my 2025 University of Florida dissertation.</p>
+</div>
+</section>
+<section class="contact-section section-rule" id="contact">
+<span class="section-kicker">READ MORE</span>
+<h2>The full<br/><span class="muted">research.</span></h2>
+<div class="contact-bottom">
+<p>Methods, statistics and discussion for all three studies are in the published papers and the dissertation.</p>
+<a class="contact-button" href="index.html#publications">SEE PUBLICATIONS <span>↗</span></a>
+</div>
+</section>
+</main>
+<footer class="footer">
+<a class="wordmark" href="index.html">DD<span>®</span></a>
+<div class="footer-links">
+<a href="index.html#work">ALL WORK ↗</a>
+<a href="https://www.linkedin.com/in/danieldel1996/" rel="noreferrer" target="_blank">LINKEDIN ↗</a>
+<a href="https://github.com/xdaedalusx/portfolio" rel="noreferrer" target="_blank">GITHUB ↗</a>
+<a href="Resume/Resume.pdf">RESUME ↗</a>
+</div>
+<span class="copyright">© 2026 DANIEL DELGADO</span>
+</footer>
+</div>
+</body>
+</html>

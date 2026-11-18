@@ -1,0 +1,11 @@
+/* Extra rules for the Shared-Gaze case study only. Loads after case-study.css. */
+.cs-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 0 0 1.6rem; }
+.cs-stats > div { background: var(--panel); padding: 1.1rem 1.2rem; }
+.cs-stats dt { font-family: "SFMono-Regular", Consolas, monospace; font-size: .62rem; letter-spacing: .09em; color: #777; margin-bottom: .45rem; }
+.cs-stats dd { margin: 0; font-size: 1.5rem; letter-spacing: -.04em; color: #eee; line-height: 1.1; }
+.cs-stats dd small { display: block; margin-top: .4rem; font-size: .78rem; letter-spacing: 0; color: #a9a9a9; line-height: 1.4; }
+.cs-quote { margin: 0 0 1.1rem; padding: .3rem 0 .3rem 1rem; border-left: 2px solid #9bc4ff; color: #d8d8d8; font-size: 1.02rem; max-width: 680px; }
+.cs-quote cite { display: block; margin-top: .3rem; font: .64rem/1.4 "SFMono-Regular", Consolas, monospace; letter-spacing: .06em; color: #8c8c8c; font-style: normal; }
+.cs-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.cs-gallery .cs-img { margin: .6rem 0 .4rem; }
+@media (max-width: 760px) { .cs-stats, .cs-gallery { grid-template-columns: 1fr; } }
