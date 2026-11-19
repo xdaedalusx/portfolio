@@ -205,19 +205,18 @@ document.querySelectorAll(".project-cover[data-carousel]").forEach((cover) => {
 });
 
 
-// Case-study buttons sit inside project cards that are themselves links. Handle them in the
-// capture phase so the card's own link (the live viewer) is not followed. Delegated, so it also
-// covers the copy of the card shown in the featured carousel.
+// Small link buttons sit inside project cards that are themselves links (the card opens the case
+// study). Handle them in the capture phase so the card's own link is not followed, and open the
+// button's destination (live viewer or GitHub) in a new tab. Delegated, so it also covers the copy
+// of the card shown in the featured carousel.
 (() => {
-  const go = (event, newTab) => {
-    const button = event.target.closest && event.target.closest('[data-case-study]');
+  const go = (event) => {
+    const button = event.target.closest && event.target.closest('[data-link]');
     if (!button) return;
     event.preventDefault();
     event.stopPropagation();
-    const href = button.getAttribute('data-case-study');
-    if (newTab || event.ctrlKey || event.metaKey || event.shiftKey) window.open(href, '_blank', 'noopener');
-    else window.location.href = href;
+    window.open(button.getAttribute('data-link'), '_blank', 'noopener,noreferrer');
   };
-  document.addEventListener('click', (event) => go(event, false), true);
-  document.addEventListener('auxclick', (event) => { if (event.button === 1) go(event, true); }, true);
+  document.addEventListener('click', go, true);
+  document.addEventListener('auxclick', (event) => { if (event.button === 1) go(event); }, true);
 })();
